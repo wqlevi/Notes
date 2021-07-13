@@ -28,6 +28,7 @@ git config --global color.ui auto # enable auto coloring
 
 git clone <url> #clone a existing repo from git(from <url>)
 git clone <branch> <url> # clone specific branch from <url>
+git pull origin master # update local repo from git
 
 git status # show modified files, staged for next commit
 git add <file> # add a file for next commit
@@ -45,6 +46,7 @@ git log # show all commits history
 git log <branch_A> <branch_B> # show commit history that are on branch_A but not branch_B
 git diff <branch_A> <branch_B> # show difference between branch_A and branch_B
 
+# create remote repo from local
 git remote add origin <url> # create a git repo from local repo
 git branch -M main
 git push -u origin main
