@@ -51,3 +51,9 @@ git remote add origin <url> # create a git repo from local repo
 git branch -M main
 git push -u origin main
 ~~~
+
+## Vim
+~~~bash
+gt # go to next tab
+:tabnew <filename> # open new file in tab
+~~~
