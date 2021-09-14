@@ -28,7 +28,7 @@ git config --global color.ui auto # enable auto coloring
 
 git clone <url> #clone a existing repo from git(from <url>)
 git clone <branch> <url> # clone specific branch from <url>
-git pull origin master # update local repo from git
+git pull origin [branch] # update local repo from git and [branch]
 
 git status # show modified files, staged for next commit
 git add <file> # add a file for next commit
@@ -49,7 +49,7 @@ git diff <branch_A> <branch_B> # show difference between branch_A and branch_B
 # create remote repo from local
 git remote add origin <url> # create a git repo from local repo
 git branch -M main
-git push -u origin main
+git push -u origin [branch] # push commits to remote repo, and set local [branch] as upstream
 ~~~
 
 ## Vim
