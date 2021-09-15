@@ -1,0 +1,17 @@
+\documentclass{article}
+\begin{document}
+\title{Review: Super-resolution using GAN on MRI}
+\maketitle
+\section{Introduction}
+This article reviews current techniques for enhancing resolution of MRI, with the assistance of deep learning. Magnetic resonance imaging has shown its potential and advantage in diagnosis of early diseases, whilst, the community devotes to make the most of it to take on better image quality. With the help of super-resolution technique, high quality anatomical MR image facilitates clinical diagnosis via revealing more structural details and minimize noise effects. Besides, super-resolution allows images be upsampled from lower resolution to high one, which explicitly augments high quality MRI at lower cost. As a conventional way, higher spatial resolution of MRIs are acquired from high-field-strength scanner and requires longer scan time,  of which the expenses could be cut down by applying deep-learning based upsampling. \\
+
+Currently, super-resolution schemes are overwhelmed by Generative Adversarial Network(GAN), such that network-driven interpolation could be trained to upscale image accurately. This already succeeded in natural image, where Super-
+Resolution Convolutional Neural Networks(SRCNN) first showed its advantage over conventional bilinear interpolation. However, due to the framework was initially built for 2D tasks, applying such network to 3D MRI leads to loss of continuity, and it's memory intense to directly transform the network to 3D. In 2D task, SRGAN first applied ResNet to super-resolution scheme to reduce memory cost, further works(DCSRN) also incorporates densely connected residual networks with 3D convolutional network to tackle the obstacles, realizing memory-efficient but more accurate performance.  
+
+
+\section{Super-Resolution Neural Networks}
+\subsection{Background}
+Single Image Super-Resolution is a commonly regarded as an estimation of reconstruction, it contains three main steps: 1) extract image features from original images, 2) downgrade original image and map paired latent vectors in feature space, 3) restore downgraded images from feature spaces. Neural networks have shown its dominance to restore lower resolution image, benefitting from adversarial learning strategy, by minimizing loss between ground truth and generated images. \\
+\subsection{Densely connected convolutional network}
+
+\end{document}
