@@ -56,4 +56,5 @@ git push -u origin [branch] # push commits to remote repo, and set local [branch
 ~~~bash
 gt # go to next tab
 :tabnew <filename> # open new file in tab
+:%s/foo/bar/gc  # replace all 'foo' by 'bar' and ask for confirmation for each
 ~~~
