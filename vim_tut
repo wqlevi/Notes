@@ -1,0 +1,90 @@
+This document aims to be written with general Vim commands/operations.
+
+-- COMMAND --
+
+# open number of lines
+: set number
+
+# Mode switching
+i/I         # insert before cursor/ at begin of the line
+a/A         # append after cursor/ at end of the line
+x/X         # delete character to the right/ left of cursor
+dw/db/d{/D/(d/[text])  # delete word/ till begin of word/ begin of paragraph etc./ till end of line/ delete till next [text]
+dd          # delete line
+u/U         # undo/ undo till before any changes
+:redo       # redo
+o/O         # open new line(below/ above)
+r           # replace character selected by cursor
+cw/cB/c0/c$(C)    # change to end of word/ from beginning of non-blank word/ till beginning of line/ till end of line/ current whole linew
+
+# Read only file
+$ view filename
+
+# Additional windows
+CONTROL-Wn  # open new window with new file
+CONTROL-Ws  # open new window with same file
+CONTROL-Wq  # close a window
+CONTROL-Ww  # switch cursor between windows
+
+
+# Moving cursors
+    k       #      up
+   h l      # left    right
+    j       #     down
+
+SPACE/BACKSPACE 
+            # move cursor forward/backward
+f/F[char]   # move cursor to next/previous [char]
+w/W         # move cursor to first letter for next word/ non-blank word
+b/B         # move cursor to first letter of previous word/ non-blank word
+e/E         # move cursor to end of next word/ non-blank word
+(/)         # move cursor to the beginning/end of sentence
+{/}         # move cursor to the beginning/end of paragraph
+H/M/L       # move cursor to left edge of Head/Middle/Last line of the screen
+^/$         # move cursor to begin/end of line
+
+# Scroll screen
+CONTROL-U/D # scroll up/ down of screen with each step
+CONTROL-E/Y # scroll continuously of screen
+CONTROL-F   # scroll forward screen to next file
+CONTROL-B   # scroll back screen to previous file
+
+# Searching
+
+n/N         # previous search history/ inversely displyed
+\           # this turns off special function of special symbols(e.g. / # ^ $ etc.)
+^/$[char]   # begin/ end of line contain [char]
+.           # denotes any character(like * in bash)
+[char]\>    # denotes end of word(e.g. `:/s\>` for words end with 's')
+[char]\<    # denotes begin of word
+[string]    # denotes a possible string of searching targets(e.g.`:/ad[jk]ust` might lead to search `adjust` or `adkust`)
+
+# get address
+:g[address] 
+:g1,.       # get text from begin of work buffer to current line
+:g.,$       # get text from current line till end of buffer
+:g1,$       # get entire work buffer
+:g/hello/   # get all lines containing 'hello'
+:g.,.+10    # get text from current line till next 10 lines
+
+# search from replacement
+:s/hey/hi   # replace 'hey' to 'hi' only at first occurence
+:1,$/ten/10 # replace all occurence of string 'ten' with '10'
+:g/here/s/ten/10 
+            # replace all 'ten' to '10' in lines contains 'here'
+:%s/\<ten\>/10/g
+            # replace all word 'ten' to '10'
+
+# show file status
+CONTROL-G   # show information of current file
+
+# repeat the last command
+:.
+
+# copy paste
+y           # yank a char
+p/P         # paste a char after/before current line
+
+# open dual file
+$ vim -o/-O filename1 filename2 # open horizontal/vertical split screen with two files opened
+=

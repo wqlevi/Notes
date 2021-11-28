@@ -1,0 +1,2 @@
+# no compiled Latex accessories
+*.aux *.pdf *.log *.fls *.fdb_latexmk *.synctex.gz

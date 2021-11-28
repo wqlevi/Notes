@@ -1,0 +1,16 @@
+\documentclass{article}
+\begin{document}
+\title{Rotating 3D MRI}
+\author{Qi Wang}
+\section{Quaternion: a 4D complex numbers}
+The general form of a Quaternion number is:
+$$q = aw + (bi + cj + dk)$$
+which could be rewrite as a format of angle:
+$$q = cos(\frac{\theta}{2}) + sin(\frac{\theta}{2})(u_bi + u_cj + u_dk)$$ 
+where, $[u_b, u_c, u_D]^T$ is a vector of rotation axis.
+\section{Hamilton Product}
+To compute resultant point($p'$) of certain coordinate($p$), given the Quaternion number($q$) use Hamilton Product:
+$$p' = qpq'$$
+where, $q'$ is conjugate number of $q$, which is, for example:
+$$q' = aw - (bi + cj + dk)$$
+\end{document}

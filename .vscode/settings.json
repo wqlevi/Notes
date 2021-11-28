@@ -1,0 +1,10 @@
+{
+    "latex-workshop.chktex.args.active": [
+        "-wall",
+        "-n22",
+        "-n30",
+        "-e16",
+        "-q",
+        "-pdf"
+    ]
+}
