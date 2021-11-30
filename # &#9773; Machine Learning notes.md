@@ -62,4 +62,5 @@ In a convolutional model, however, fully connected layers are only used at eithe
 ### Normalizing data
 As the activation layer of convolution operation gives -1 or 1 as output, thus it's essential to clap all data in range [-1,1] before feeding them into network.
 ### Regularisations
-1. $L_1$(_lasso_) and $L_2$(_ridge_) regularisation were used to avoid overfitting, by introducing additional information(penalty);
+1. L<sub>1</sub>(_lasso_) and L<sub>2</sub>(_ridge_) regularisation were used to avoid overfitting, by introducing additional information(penalty);
+

@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{mathtools}
 \begin{document}
 \title{Review: Super-resolution using GAN on MRI}
 \author{Qi Wang}
@@ -14,5 +15,27 @@ Resolution Convolutional Neural Networks(SRCNN) first showed its advantage over 
 \subsection{Background}
 Single Image Super-Resolution is a commonly regarded as an estimation of reconstruction, it contains three main steps: 1) extract image features from original images, 2) downgrade original image and map paired latent vectors in feature space, 3) restore downgraded images from feature spaces. Neural networks have shown its dominance to restore lower resolution image, benefitting from adversarial learning strategy, by minimizing loss between ground truth and generated images. \\
 \subsection{Densely connected convolutional network}
+\subsection{Subpixel shuffling}
+\section{Diffusion probabilistic models}
+To be concise, following points illutrates how diffusion model could be used to generate high quality images:
+\begin{itemize}
+\item A Markov chain that gradually add noise to data in opposite direction of sampling until signal is destroyed;
+\item Transition(or interval) of the chain($p_{\theta}(X_{t-1}|X_{t})$) was learned to reverse a diffusion process($q(X_{t}|X_{t-1}$)
+\item During the learning process of the model, the definition of the transition is, given $p(X_{T} = \mathcal{N}(X_{T};\textbf{0},\textbf{I}))$: 
+\begin{gather}
+p_{\theta}(X_{0:T}) := p(X_{T})\prod_{t=1}^{T}p_{\theta}(X_{t-1}|X_{t}),\\
+p_{\theta}(X_{t-1}|X_{t}) := \mathcal{N}(X_{t-1};\mu_{\theta}(X_{t},t),\sum_{\theta}(X_{t},t))
+\end{gather}
+\item Reversely, the diffusion process, so called \textit{forward process},of which the approximate posterior $q(X_{1:T}|X_{0})$ is fixed to a Markov chain that gradually add noise to data according to variance schedule $\beta_{1},...,\beta_{T}$:
+\begin{gather}
+    q(X_{1:T}|X_{0}) := \prod_{t=1}^{T}q(X_{t}|q_{t-1}),\\
+    q(X_{t}|X_{t-1}) := \mathcal{N}(X_{t};\sqrt{1-\beta_{t}}x_{t-1},\beta_{t}\textbf{I})
+\end{gather}
+\item Combining Eq. (1) and (3) could give a variational bound on negative likelihood:
+\begin{gather}
+ % a error here:
+    %   \mathbb{E}[-logp_{\theta}(X_{0})] \leq \mathbb{E}_{q}[-log\frac{p_{theta}(X_{0:T})}{q(X_{1:T}|X_{0})}] = \mathbb{E}_{q}[-logp(X_{T}) - \sum_{t\geq 1}logp_{\theta} \frac {(X_{t-1}|X_{t})}{q(X_{t}|X_{t-1})}] =: L
+\end{gather}
 
+\end{itemize}
 \end{document}
