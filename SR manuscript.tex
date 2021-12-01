@@ -28,7 +28,7 @@ p_{\theta}(X_{t-1}|X_{t}) := \mathcal{N}(X_{t-1};\mu_{\theta}(X_{t},t),\sum_{\th
 \end{gather}
 \item Reversely, the diffusion process, so called \textit{forward process},of which the approximate posterior $q(X_{1:T}|X_{0})$ is fixed to a Markov chain that gradually add noise to data according to variance schedule $\beta_{1},...,\beta_{T}$:
 \begin{gather}
-    q(X_{1:T}|X_{0}) := \prod_{t=1}^{T}q(X_{t}|q_{t-1}),\\
+    q(X_{1:T}|X_{0}) := \prod_{t=1}^{T}q(X_{t}|X_{t-1}),\\
     q(X_{t}|X_{t-1}) := \mathcal{N}(X_{t};\sqrt{1-\beta_{t}}x_{t-1},\beta_{t}\textbf{I})
 \end{gather}
 \item Combining Eq. (1) and (3) could give a variational bound on negative likelihood:

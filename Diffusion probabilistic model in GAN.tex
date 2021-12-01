@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\setlength{\parindent}{0em}
+\title{Diffusion probabilistic model in GAN}
+\author{Qi Wang}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Pre-requisites}
+\subsection*{Monte Carlo simulatioin and Markov Chain}
+\subsection*{Variational bound}
+\subsection*{Annealed Importance Sampling}
+This uses a Markov chain to slowly convert one distribution to another to compute a ratio of normalization constants.
+\subsection*{Langevin dynamics}
+These are the stochatic realization of the Fokker-Planck equation, which show how to define a Gaussian diffusion process who has many target distributions at its equilibrium.
+\subsection*{Kolmogorov equations}
+It shows that forward and backward diffusion process can be drscribed using the same functional form. The forward Kolmogorov equation corresponds to Fokker-Planck equation, while the backward one  describes the time-reversal of this diffusion process, but requires knowing gradients of the density function as a function of time.
+\section{Related works}
+There are a number of techniques for training probabilistic model for generative purpose.Reweighted wake-sleep algorithm develops extension and improves learning rules to original wake-sleep algorithm. Generative stochastic networks train a Markov kernel to match its equilibrium distributions to data. Neural autoregressive distribution estimator decomposes a joint distribution into a sequence of tractable conditional distributions. And adversrarial networks train a generative model against a classifier which attempts to distinguish generated samples from real data distributions.
+\section{Algorithm}
+The goal is to define a forward(or backward) diffusion process which converts any data distribution into a simple, tractable, distribution, and then learn a finite-time reversal of this diffusion process(which defines the generative model).
+\subsection*{Forward process}
+This is the process where original data get diffused into another distribution(e.g. from image to noise).The original data distribution to be noted as $q(x^0)$, and eventually it's converted to a distribution $\pi(y)$, by repeatedly applying Markov diffusion kernel $T_{\pi}(y|y';\beta)$, which could be either a Gaussian or a binomial diffusion with $\beta$ being diffusion rate.
+\begin{gather}
+\pi(y) = \int_{}^{}dy'T_{\pi}(y|y';\beta)\pi(y')\\
+q(x^t|x^{(t-1)}) = T_{\pi}(x^t|x^(t-1);\beta_{t})
+\end{gather}
+Forward process starts at data distribution and perform $T$ steps of diffusion:
+\begin{gather}
+q(x^{(0...T)}) = q(x^{0})\prod_{t=1}^{T}q(x^{t}|x^{(t-1)})
+\end{gather}
+$q(x^{t}|x^{(t-1)})$ is either Gaussian or binomial diffusion.
+\subsection*{Reverse process}
+This is the process where the model learns to generate.
+\begin{gather}
+p(x^{T}) = \pi(x^{T]})\\
+p(x^{(0...T)}) = p(x^{T})\prod_{t=1}^{T}p(x^{(t-1)}|x^{t})
+\end{gather}
+Since $q(x^{t}|x^{(t-1)})$ is Gaussian(binomial) distribution, if $\beta_{t}$ is small enough to be neglected, $q(x^{(t-1)}|x^{t})$ will also be Gaussian(binomial) distribution.\\
+
+During the learning, only the mean and the convariance for Gaussian kernel need be estimated.
+\subsection*{Model probability}
+The probability the genertive model assigns to the data is:
+\begin{gather}s
+p(x^{0}) = \int_{}{}dx^{(1...T)}p(x^{(0...T)})
+\end{gather}
+and by rewriting the Eq. (6) into:
+\begin{equation}
+    \begin{split}
+        p(x^{(0)}) &= \int_{}{}dx^{(1...T)}p(x^{(0...T)})\frac{q(x^{(1...T)}|x^{0})}{q(x^{(1...T)}|x^{0})}\\
+        &= \int_{}{}dx^{(1...T)}q(x^{(1...T)})\frac{p(x^{(0...T)})}{q(x^{(1...T)}|x^{0})}\\ 
+        &= \int_{}{}dx^{(1...T)}q(x^{(1...T)}|x^{(0)})*p(x^{(T)})\prod_{t=1}^{T}\frac{p(x^{(t-1)}|x^{(t)})}{q(x^{(t)}|x^{(t-1)})}
+    \end{split}    
+\end{equation}
+\end{document}
+
