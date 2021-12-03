@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Math basis for Machine Leanring}
+\author{Qi Wang}
+\begin{document}
+\maketitle   
+\section*{Linear Algebra}
+\subsection*{Jacobian Matrix}
+Given a function of mapping a $n$-dimensional input vector to a $m$-dimensional output vector, $f:\mathbb{R}_{n} \mapsto  \mathbb{R}^{m}$, the matrix of the first-order partial derivatives is called \textbf{Jacobian Matrix},\textbf{J}:
+\[
+    J = \begin{bmatrix}
+    \frac{\partial{f_{1}}}{\partial{x_{1}}} &\cdots &\frac{\partial{f_{1}}}{\partial{x_{n}}}\\
+    \vdots &\ddots &\vdots\\
+    \frac{\partial{f_{m}}}{\partial{x_{1}}} &\cdots &\frac{\partial{f_{m}}}{\partial{x_{n}}}\\
+\end{bmatrix}
+\]
+\section*{Probability}
+\subsection*{Expectation}
+\[
+    \mathbb{E}_{x\sim{p_{r}(x)}} f(x) = \int_{x}p_{r}(x)f(x)dx   
+\]
+where $x\sim{p_{r}(x)}$
+\subsection*{Reparameterization trick}
+Assume we have a normal distribution $q$ that is parameterized by $\theta$, specifically $q_{\theta}(x) = N(\theta,I)$. And we want solve the following:
+\[
+min_{\theta} \mathbb{E}_{q}[x_2]    
+\]
+By calculating its gradient:
+\[
+\begin{split}
+\nabla_{\theta}\mathbb{E}_{q}[x^2] &= \nabla_{\theta}\int{}{}q_{\theta}(x)x^2dx \\
+&=\mathbb{E}_{q}[x^2\nabla_{\theta}logq_{\theta}(x)]
+\end{split}
+\]
+For example, we give $q_{\theta}(x) = N(\theta,I)$, this changes to:
+\[
+    \nabla_{\theta}\mathbb{E}_{q}[x^2] = \mathbb{E}_{q}[x^2(x-\theta)]    
+\]
+Now comes the trick to Reparameterize, so that the gradient will be independent of $\theta$:
+\[
+x = \theta + \epsilon, \epsilon \sim N(0,I)    
+\]
+Then rewrite the equation as:
+\[
+\mathbb{E}_{p}[x^2] = \mathbb{E}[(\theta + \epsilon)^2]    
+\]
+Where $p$ is the distribution of $\epsilon$, i.e. $N(0,I)$. Again, rewriting:
+\[
+\nabla_{\theta}\mathbb{E}_{q}{x^2} = \mathbb{E}_{q}[2(\theta+\epsilon)]    
+\]
+\end{document}
