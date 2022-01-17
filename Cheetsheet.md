@@ -1,4 +1,4 @@
-# CheetSheet
+/bin/bash: :q: command not found
 ## Typora:
 ~~~ python
 Ctrl+/	# Toggle between source code mode and displayed
@@ -57,4 +57,14 @@ git push -u origin [branch] # push commits to remote repo, and set local [branch
 gt # go to next tab
 :tabnew <filename> # open new file in tab
 :%s/foo/bar/gc  # replace all 'foo' by 'bar' and ask for confirmation for each
+~~~
+### VimTex
+~~~bash
+\ll # to start(or stop) compiling
+\lk # to stop compiling
+\lc # to clear auxiliary files
+:cse [blockname]# a command to toggle surrouding environment change to [blockname]
+:dse # delete an environment
+:tse # to toggle "*" in environments
+]] # * in NORMAL mode jump to next block | in INSERT mode close the environment
 ~~~
