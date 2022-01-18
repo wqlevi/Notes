@@ -80,3 +80,9 @@ zI, zO, z0 # zoom in, out, origional size(more freely)
 n= # zoom to size 'n'
 q # quit
 ~~~
+
+## LaTex
+check out how to strike out words using packages[here](https://jansoehlke.com/2010/06/strikethrough-in-latex/)
+~~~tex
+\LaTex\
+~~~
