@@ -59,10 +59,12 @@ gt # go to next tab
 :%s/foo/bar/gc  # replace all 'foo' by 'bar' and ask for confirmation for each
 ~~~
 ### VimTex
+more of its full list of command [here](https://github.com/lervag/vimtex/blob/e323c55e9669c1adb205295b06ec4463bae5b637/doc/vimtex.txt#L669)
 ~~~bash
 \ll # to start(or stop) compiling
 \lk # to stop compiling
 \lc # to clear auxiliary files
+\le # to toggle log error panel(the one split at bottom)
 :cse [blockname]# a command to toggle surrouding environment change to [blockname]
 :dse # delete an environment
 :tse # to toggle "*" in environments
