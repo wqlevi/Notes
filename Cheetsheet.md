@@ -70,3 +70,5 @@ more of its full list of command [here](https://github.com/lervag/vimtex/blob/e3
 :tse # to toggle "*" in environments
 ]] # * in NORMAL mode jump to next block | in INSERT mode close the environment
 ~~~
+### Zathura
+more of the shortcuts for the viewer is listed [here](http://manpages.ubuntu.com/manpages/xenial/man1/zathura.1.html)
