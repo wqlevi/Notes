@@ -82,7 +82,7 @@ q # quit
 ~~~
 
 ## LaTex
-check out how to strike out words using packages[here](https://jansoehlke.com/2010/06/strikethrough-in-latex/)
-~~~tex
-\LaTex\
-~~~
+check out how to strike out words using packages [here](https://jansoehlke.com/2010/06/strikethrough-in-latex/)
+'''tex
+\LaTex
+'''
