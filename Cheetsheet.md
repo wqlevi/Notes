@@ -1,4 +1,4 @@
-/bin/bash: :q: command not found
+
 ## Typora:
 ~~~ python
 Ctrl+/	# Toggle between source code mode and displayed
