@@ -65,6 +65,7 @@ more of its full list of command [here](https://github.com/lervag/vimtex/blob/e3
 \lk # to stop compiling
 \lc # to clear auxiliary files
 \le # to toggle log error panel(the one split at bottom)
+\lt # to toggle Table-of-Contents(ToC) panel
 :cse [blockname]# a command to toggle surrouding environment change to [blockname]
 :dse # delete an environment
 :tse # to toggle "*" in environments
