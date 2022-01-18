@@ -72,3 +72,10 @@ more of its full list of command [here](https://github.com/lervag/vimtex/blob/e3
 ~~~
 ### Zathura
 more of the shortcuts for the viewer is listed [here](http://manpages.ubuntu.com/manpages/xenial/man1/zathura.1.html)
+~~~bash
+#Basic Key Bindings:
++,-,= # zoom in, out, origional size
+zI, zO, z0 # zoom in, out, origional size(more freely)
+n= # zoom to size 'n'
+q # quit
+~~~
