@@ -56,7 +56,8 @@ git push -u origin [branch] # push commits to remote repo, and set local [branch
 ~~~bash
 gt # go to next tab
 :tabnew <filename> # open new file in tab
-:%s/foo/bar/gc  # replace all 'foo' by 'bar' and ask for confirmation for each
+:%s/foo/bar/gc  # replace ALL instance of 'foo' by 'bar' and ask for confirmation for each
+:s/foo/bar/gc   # replace INLINE instance of 'foo' by 'bar' and ask for confirmation for each
 ~~~
 ### VimTex
 more of its full list of command [here](https://github.com/lervag/vimtex/blob/e323c55e9669c1adb205295b06ec4463bae5b637/doc/vimtex.txt#L669)
