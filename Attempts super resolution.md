@@ -20,7 +20,7 @@ __checkerboard__ : `wangqi@raven.mpcdf.mpg.de:/u/wangqi/torch_env/crop_gan/image
 	* Pixelshuffle 3d,\
 	* Un-trained VGG16 layers\
 As was summaried [here](https://link.springer.com/chapter/10.1007%2F978-3-030-87231-1_8), checkerboard effect couldn't be easily removed from the result when using a patched training.
-=======
+
 __checkerboard__ : `wangqi@raven.mpcdf.mpg.de:/u/wangqi/torch_env/crop_gan/images/training/3dimg_crop_less_C8`
 	* JOBID:549473
 	* Normal ESRGAN in 3D,
