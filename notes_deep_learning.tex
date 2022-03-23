@@ -75,7 +75,10 @@ Thus the prediction on the next data $x^{(m+1)}$ is predicted and weighted on th
 Unlike the \textbf{MLL} to predict one point of the parameter, Bayesian stat. recover dataset by intergral over possible parameters. Secondly, Bayesian stat.depends on predefined prior of $\theta$, which was initiated by large entropy and decreased to smaller and more prone to data distribution entropy as data grows.\par
 Overall, it produce much better result given limited number of data, but requires more computation cost.
 
+\section{Feedforward neural network}
+This category usually refers to networks other than recurrent neural networks, which use network's output as other layer's input. The most common type of Feedforward network is MLP(multilayer perceptron).
 
+The gradient descent method is quite sensitive to initialization of weights, thus one shall always choose small random values for weights initialization; bias can be initialized to zero of small positive value.
 \section{GAN}
 GAN compares to the rest of the generative model, differing by a two-player game strategy. In the game, the discriminator tries to distinguish generated results from real data distribution, thus to encourage the generator to produce samples closer to the real data. \\
 \subsubsection*{Discriminator derivation}
