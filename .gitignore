@@ -1,2 +1,10 @@
 # no compiled Latex accessories
-*.aux *.pdf *.log *.fls *.fdb_latexmk *.synctex.gz
+*.aux 
+*.pdf 
+*.log 
+*.fls 
+*.fdb_latexmk 
+*.synctex.gz
+# no cache folders from MacOS
+*.DS_store
+*.vscode
