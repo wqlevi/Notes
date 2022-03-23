@@ -1,11 +1,183 @@
 \documentclass{article}
+\parindent = 0pt
+\setlength{\parskip}{1em}  
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\newcommand{\argmax}{\arg\!\max}
+\newcommand{\argmin}{\arg\!\min}
 \author{Qi Wang}
 \title{Notes on Deep Learning}
 \begin{document}
 \maketitle
-\section*{Basic terminologies}
+\section{Basic terminologies}
+%********Preface list of terms
+\textbf{Closed-form Expression:} A mathematical expression that consists of finite number of standard operations.(e.g. multiplications, divisions, plus, minus, etc.)
+\textbf{Manifold:}
+It can be referred to a connected region. The concept of neighborhood point implies the possible existing tranformations to move from point to point. It can also be though as a small number of degree of freedom embedded in high dimensionalities of data, where each dimensionality corresponds to local direction of variantion. 
+\textbf{Attention:}
+\begin{enumerate}
+\item \textit{def.1} attention: using techniques to tell the algorithm what's important in a input.
+\item \textit{def.2} post-hoc attention:
+\end{enumerate}
+\textbf{Convexity}:\\
+\textbf{Tractability}:\\
+\textbf{Consistency:} The bias between estimated result and its real value, which can be diminished as data example grows.\\
 \textbf{generalization:} The ability to perform well on previously unseen data is called generalization. That is, test error reflects generalization ability.\\
 \textbf{underfitting:} When the model is not able to obtain a sufficient low training error;\\
 \textbf{overfitting:} When the difference between \textit{test error} and \textit{training error} is too large;\\
+\textbf{Regularization:} This is any modification we make to a learning algorithm that is intended to reduce its generalization error but not its training error;\\
+%********Close Preface
+\section{Basic machine learning}
+\textbf{Point estimator: } The attempt to provide the single best prediction of some quantity of interest, weights of model for example. Denoted as:
+$$\hat{\theta_{m}} = g(x^{(1)},\dots,x^{(m)})$$
+where $\hat{\theta_{m}}$ represents the estimated value of the interest.(e.g. weights of model)\\
+\textbf{Bias: } It is defined as:\\
+$$bias(\hat{\theta_{m}}) = \mathbb{E}(\hat{\theta_{m}}) - \theta_{m}$$   
+where $\theta_{m}$ is the underlying true parameter of interest. \\
+\textbf{Variance:}\\
+\textbf{Maximum Likelihood Estimation: }
+Let $p_{model}(x;\theta)$ be a parametric probability distribution, mapping any configuration of $x$ to a real number estimating the true probability $p_{data}(x)$. That is defined as:
 
+\begin{align*}
+\theta_{ML} &= \argmax_\theta p_{model}(\mathbb{X};\theta),\\
+&= \argmax_\theta \prod_{i=1}^{m}p_{model}(x^{(i)};\theta)
+\end{align*}
+
+Expressed in $log$ scale for the simplicity of calculation:
+\[ \theta_{ML} = \argmax_\theta \sum_{i=1}^{m}\log p_{model}(x^{(i)};\theta)\]
+Because $\argmax$ does not change when rescaling the cost function, we can divide by $m$ to obtain expectation version of criterion w.r.t. empirical distribution $\hat{p}_{data}$:
+\[
+    \theta_{ML} = \argmax_\theta \mathbb{E}_{x\sim\hat{p}_{data}} \log p_{model}(x;\theta)    
+\]
+Maximum Likelihood Estimation can be viewed as minimizing the KL divergence here:
+\[
+    \textit{D}_{KL}(\hat{p}_{data}||p_{model}) = \mathbb{E}_{x\sim\hat{p}_{data}(x)}[\log\hat{p}_{data}(x) - \log p_{model}(x)]    
+\]
+Since $\log\hat{p}_{data}$ is only about data generation, thus only need to minimize $\log p_{model}(x)$
+\subsection*{Properties of Maximum Likelihood}
+As the number of examples $m \rightarrow \infty$, the maximum likelihood of estimate approaches the real value of the parameter. These conditions applies:
+\begin{enumerate}
+    \item The true distribution $p_{data}$ must lie within the model families $p_{model}(x;\theta)$, otherwise no estimator could recover $p_{data}$
+    \item The true distribution must correspond to only one value of parameter $\theta$, otherwise the estimator can recover the correct $p_{data}$ but not determining which $\theta$
+\end{enumerate}
+\subsection*{Bayesian statistics}
+Other than estimating single $\theta$, another approach is to consider all possible $\theta$ values when making prediction over observed data, this is the how \textit{Bayesian statistic} work. \par
+One could recover the belief about $\theta$ over observed samples by applying Baysian rule:
+\begin{equation}
+    p(\theta|x^{(1)},\dots,x^{(m)}) = \frac{p(x^{(1)},\dots,x^{(m)}|\theta)p(\theta)}{p(x^{(1)},\dots,x^{(m)})}
+\end{equation}
+One could estimate the next $m+1$ sample from observed $m$ samples, based on our belief about $\theta$ :
+\begin{equation}
+    p(x^{(m+1)}|x^{(1)},\dots,x^{(m)}) = \int p(x^{(m+1)}|\theta)p(\theta|x^{(1)},\dots,x^{(m)})d\theta
+\end{equation}
+Thus the prediction on the next data $x^{(m+1)}$ is predicted and weighted on the posterior distribution of $\theta$(the posterior: $p(\theta|x^{(1)},\dots,x^{(m)})$).\par
+Unlike the \textbf{MLL} to predict one point of the parameter, Bayesian stat. recover dataset by intergral over possible parameters. Secondly, Bayesian stat.depends on predefined prior of $\theta$, which was initiated by large entropy and decreased to smaller and more prone to data distribution entropy as data grows.\par
+Overall, it produce much better result given limited number of data, but requires more computation cost.
+
+
+\section{GAN}
+GAN compares to the rest of the generative model, differing by a two-player game strategy. In the game, the discriminator tries to distinguish generated results from real data distribution, thus to encourage the generator to produce samples closer to the real data. \\
+\subsubsection*{Discriminator derivation}
+By means of MLE, a discriminator tries to maximize its log-likelihood of:
+
+\begin{equation}
+\begin{gathered}
+\argmax_{D(x)} \mathbb{E}_{x\sim p_{r}(x)} \log{D(x)}\\
+\end{gathered}
+\end{equation}
+While maximzing accuracy for identifying data from real data, discriminator maximizes accuracy of determining generated samples are false(reversely judge probability of generated samples):
+\begin{equation}
+    \begin{gathered}
+\argmax_{D(x)} \mathbb{E}_{z\sim p_{z}(z)} \log{(1-D(G(z)))}\\
+    \end{gathered}
+\end{equation}
+\subsubsection*{Generator derivative}
+Simaltanously, for the generator to update, the goal is to decrease the accuracy of generated samples predicted by discriminator:
+\begin{equation}
+    \begin{gathered}
+\argmin_{G(z)} \mathbb{E}_{z\sim p_{z}(z)} \log{(1-D(G(z)))}\\
+    \end{gathered}
+\end{equation}
+Thus a overall cost function is given to train both \textit{discriminator} and \textit{generator}:
+\begin{equation}
+    \begin{gathered}
+\textit{L}(G,D) = \argmin_{G(x)} \argmax_{D(x)} \mathbb{E}_{x\sim p_{r}(x)} \log{D(x)} + \mathbb{E}_{x\sim p_{g}(x)} \log{(1-D(x))}\\
+    \end{gathered}
+\end{equation}
+where $z\sim p_z{(z)}$ is replaced by $x\sim p_g{(x)}$, indicating x sampled from generated data 
+\subsubsection*{Discriminator optimal}
+By calculating partial derivative of $D$, we know that optimal value of discriminator($D^*$) is:
+\begin{align}\label{eq5}
+D^{*} &= \frac{p_{r}(z)}{p_{r}(x)+p_{g}(x)} \nonumber\\
+&= \frac{1}{2},
+\end{align}
+
+when $p_{r}(x) = p_{g}(x), x\in [0,1]$.
+\subsubsection*{Global optimal}
+Plugging in optimal value of the \textit{discriminator}($D^*$) into eq.4:
+\begin{align}
+    \textit{L}(G,D^*) &= \int_{x}p_{r}(x)\log{D^*(x)} + p_{g}(x)\log{(1-D(x))}dx \\
+    &=\log(\frac{1}{2})\int_{x}p_{r}(x)dx + \log(\frac{1}{2})\int_{x}p_{g}(x)dx\\
+    &=-2\log{2}
+\end{align}
+Thus, the global optimal is obtained after optimal of \textit{discriminator}.
+\subsubsection*{Loss function}
+GAN was designed origionally using $JS$ divergence, between $p_{r}$ and $p_{g}$:
+\begin{align}
+    D_{JS}(p_{r}||p_{g}) &= \frac{1}{2}D_{KL}(p_{r}||\frac{p_{r}+p_{g}}{2}) + \frac{1}{2}D_{KL}(p_{g}||\frac{p_{r}+p_{g}}{2}) \\
+    &= \log{2} + \frac{1}{2}(\int_{x}p_{r}(x)\log{
+        \frac{p_{r}(x)}{p_{r}(x)+p_{g}(x)}}\\
+        &+\int_{x}p_{g}(x)\log{\frac{p_{g}(x)}{p_{r}(x)+p_{g}(x)}})\\
+    &= \frac{1}{2}(\log{4}+L(G,D^*))    
+\end{align}
+Meaning that the most optimal \textit{generator} replicates the real data distribution, and resulting global minimum of $L(G^*,D^*) = -2\log(2)$ inline with eq.8.
+\subsubsection*{Lipschitz continuity}
+This is used to identity the continuity and but not necessarily differentiable of a function(e.g. $f(x) = |x|$). Defined as:
+\[
+\exists K, \forall x_{i}, |f(x_{1}) - f(x_{2})| \leq K|x_{1}-x_{2}|    
+\]
+\section{Markov Chain Monte Carlo}
+\subsection{Markov Chain}
+This method applys to the following rule:
+\[
+P_{r}(x_{t+1}|x_{1},x_{2},\dots ,x_{t}) = P_{r}(x_{t+1}|x_{t})
+\]
+Thus, the probability of next state to happen depends on current state, even though lots of states were taken places.
+\subsection{Monte Carlo Simulation}
+Monte Carlo simulation uses randomness to repeatedly calculate numerical results, restricted by a deterministic computation. Commonly, the Monte Carlo method could be applied to tackle problem that is not analytical tractable. This method is widely applied in a broad varity and have a particular pattern: \\
+\begin{enumerate}
+\item Define a domain of possible input;
+\item Generate inputs from probability distribution randomly over the domain;
+\item Perform a deterministic computation on the inputs;
+\item Aggregate the inputs
+\end{enumerate}
+\section{VAE}
+\subsection{Latent variable models}
+Suppose one wish to construct a image($x, x\in \mathbb{R}^{D}$), but do not know the distribution of it($p(x)$). We could induce another latent variable($z, z\in \mathbb{R}^d$) to account for it:
+\begin{equation}
+p(x) = \int p(x|z)p(z)dz     
+\end{equation}
+And find out the optimal distribution of $p_{\theta}(x)$:
+    \begin{align}
+    \theta^{*} &= \argmax_{\theta} p_{\theta}(x)\\
+    & =\mathbb{E}_{p(x)} [p_{\theta}(x|z)]\\ 
+    & =\mathbb{E}_{p(x)} [\frac{q_{\theta}(z|x)}{q_{\theta}(z|x)}p_{\theta}(x|z)]\\
+    & =\mathbb{E}_{q_{\phi}(z|x)}[\frac{p_{\theta}(x|z)p(z)}{q_{\phi}(z|x)}]
+    \end{align}
+Eq.17 applies the \textit{importance sampling} strategy, which approximates target distribution by weighting different inferencing distribution. 
+\subsection{VAE components}
+\begin{enumerate}
+    \item $p(x,z)$ which is the generative model, consists of: 
+    \subitem * $p_{\theta}(x|z)$ a probability decoder
+    \subitem * $p(z)$ a prior over latent variables
+    \item $q_{\phi}(z|x)$ a probability encoder
+\end{enumerate}
+To approximates the posterior, one can use \textit{KL Divergence} :
+\begin{align}
+    D_{KL}(q_{\phi}(z|x)||p_{\theta}(z|x)) &= \mathbb{E}_{q_{\phi}(z|x)}[\log{\frac{q_{\phi}(z|x)}{p_{\theta}(z|x)}}]\\
+    &=\mathbb{E}_{q_{\phi}(z|x)}[\log{q_{\phi}(z|x)} - \log{p_{\theta}(z,x)}]+\log{p_{\theta}(x)}\\
+    &= -\mathcal{L}(x;\theta,\phi) + \log{p_{\theta}(x)}
+\end{align}
+Eq. 19 applyies \textit{Bayesian rule} and the fact that $x$ and $z$ are i.i.d. sampled. The $\mathcal{L}$ is so-called \textbf{ELBO}(evidence-lower bound). Thus, as \textbf{ELBO} increases, the \textit{log-likelihood} of $p_{\theta}(x)$ also increases.
 \end{document}
