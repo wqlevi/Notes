@@ -76,13 +76,20 @@ Unlike the \textbf{MLL} to predict one point of the parameter, Bayesian stat. re
 Overall, it produce much better result given limited number of data, but requires more computation cost.
 
 \section{Feedforward neural network}
-This category usually refers to networks other than recurrent neural networks, which use network's output as other layer's input. The most common type of Feedforward network is MLP(multilayer perceptron).
+This category usually refers to networks other than recurrent neural networks, which use network's output as other layer's input. The most common type of Feedforward network is MLP(multilayer perceptron) and CNN.
 
+\subsection{Weights and Bias}
 The gradient descent method is quite sensitive to initialization of weights, thus one shall always choose small random values for weights initialization; bias can be initialized to zero of small positive value.
+
+\subsection*{Weights}
+In MLP, the weight refer to the weight factor in each connected neuron, e.g. from $N$-neuron first layer to $M$-neuron second layer, $N\times M$ weights were created; while due to slightly different definition of neuron in Convolutional networks, which defines each Conv filter as a neuron, weight equals to the tensor of Conv filter(e.g. a Conv2d(kernel=(2,2),input\_channel=1,output\_channel16), where 16 neurons each one will contain $2\times 2\times 1$ weights and one bias)
+
+
 \section{GAN}
 GAN compares to the rest of the generative model, differing by a two-player game strategy. In the game, the discriminator tries to distinguish generated results from real data distribution, thus to encourage the generator to produce samples closer to the real data. \\
+
 \subsubsection*{Discriminator derivation}
-By means of MLE, a discriminator tries to maximize its log-likelihood of:
+Discriminator is often regarded as "classification model" that assign image to labels, here for example "fake" and "real" labels. By means of MLE, a discriminator tries to maximize its log-likelihood of:
 
 \begin{equation}
 \begin{gathered}
@@ -102,13 +109,13 @@ Simaltanously, for the generator to update, the goal is to decrease the accuracy
 \argmin_{G(z)} \mathbb{E}_{z\sim p_{z}(z)} \log{(1-D(G(z)))}\\
     \end{gathered}
 \end{equation}
-Thus a overall cost function is given to train both \textit{discriminator} and \textit{generator}:
+Thus a overall cost function is given to train both \textit{discriminator} and \textit{generator}, and this is where the both network reaches their optimal, i.e. \textit{Nash Equilibrium}:
 \begin{equation}
     \begin{gathered}
 \textit{L}(G,D) = \argmin_{G(x)} \argmax_{D(x)} \mathbb{E}_{x\sim p_{r}(x)} \log{D(x)} + \mathbb{E}_{x\sim p_{g}(x)} \log{(1-D(x))}\\
     \end{gathered}
 \end{equation}
-where $z\sim p_z{(z)}$ is replaced by $x\sim p_g{(x)}$, indicating x sampled from generated data 
+where $z\sim p_z{(z)}$ is replaced by $x\sim p_g{(x)}$, indicating x sampled from generated data, and $G(x)$ tries to minimize the function at RHS, while the $D(x)$ tries to maximize it.
 \subsubsection*{Discriminator optimal}
 By calculating partial derivative of $D$, we know that optimal value of discriminator($D^*$) is:
 \begin{align}\label{eq5}
