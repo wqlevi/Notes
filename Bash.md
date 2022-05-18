@@ -30,3 +30,12 @@ esle
 if
 ~~~
 Since numbers from 0 to 255 represent detailed exit status, could be better to check [this](tldq.org/LDP/abs/html/exitcodes.html) for details.
+
+
+To retrieve the mistakenly overwritten bashrc file:
+if the shell session running previous bashrc is still active:
+~~~bash
+cp /etc/skel/.bashrc ~/.bashrc
+#or
+declare > .bashrc.recovered
+~~~
