@@ -3,6 +3,8 @@ syntax on
 autocmd vimenter * ++nested colorscheme gruvbox
 set termguicolors
 set background=dark
+" set auto-folding to 'indent' mode('syntax','expr','marker')
+setlocal foldmethod=indent
 " set map key <leader> to SPACE
 let mapleader=" "
 
