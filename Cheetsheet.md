@@ -53,6 +53,7 @@ git push -u origin [branch] # push commits to remote repo, and set local [branch
 ~~~
 
 ## Vim
+a example .vimrc script [here](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/)
 ~~~bash
 gt # go to next tab
 :tabnew <filename> # open new file in tab
