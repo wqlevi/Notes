@@ -3,8 +3,6 @@ syntax on
 autocmd vimenter * ++nested colorscheme gruvbox
 set termguicolors
 set background=dark
-" set auto-folding to 'indent' mode('syntax','expr','marker')
-setlocal foldmethod=indent
 " set map key <leader> to SPACE
 let mapleader=" "
 
@@ -32,6 +30,7 @@ colorscheme gruvbox
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set foldmethod=indent
 let g:syntastic_python_checkers = ['pylint']
 
 let g:syntastic_always_populate_loc_list = 1
@@ -52,6 +51,8 @@ let g:gitgutter_override_sign_column_highlight = 1
 syntax enable 
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
+" map the local-leader key to SPACE
+let maplocalleader = ' '
 " key-bindings
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>

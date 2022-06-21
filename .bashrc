@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\e[01;35m\]\t\[\e[m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -85,7 +85,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -115,3 +115,60 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/qiwang/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/qiwang/anaconda2/etc/profile.d/conda.sh" ]; then
+        . "/home/qiwang/anaconda2/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/qiwang/anaconda2/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# export PATHONPATH=/home/qiwang/anaconda2/bin/python 
+alias ll='ls -lGh'
+alias typora='/home/qiwang/Downloads/Typora-linux-x64/Typora'
+alias pip='pip3'
+alias code='/home/qiwang/Downloads/VSCode/bin/code'
+alias dog='pygmentize -O style=monokai -g'
+# laynii path config
+
+# MRICRON alias
+alias mricron='/mnt/DATA/LinuxProfile/Downloads/mricron/MRIcron'
+
+# ANTs path
+export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=8
+export ANTSPATH=/home/qiwang/bin/bin/
+export PATH=$PATH:/home/qiwang/c_env/ANTs/ants_superbuild/ANTS-build/Examples
+
+# OpenACC config
+export NVARCH=`uname -s`_`uname -m`
+export NVCOMPILERS=/home/qiwang/Downloads/openacc/nvidia
+export MANPATH=%MANPATH:$NVCOMPILERS/$NVARCH/21.7/compilers/man
+export PATH=$NVCOMPILERS/$NVARCH/21.7/compilers/bin:$PATH
+
+# GNU scientific library
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/qiwang/c_env/lipsia
+export GSL_L=/home/qiwang/c_env/lipsia/ext/lib
+export GSL_EL=/home/qiwang/c_env/lipsia/lib
+#LIPSIA configure
+export LIBRARY_PATH=/home/qiwang/c_env/lipsia/ext/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/qiwang/c_env/lipsia/lib
+export LD_LIBRARY_PATH=/home/qiwang/c_env/lipsia/ext/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/qiwang/c_env/lipsia/lib
+export C_INCLUDE_PATH=/home/qiwang/c_env/lipsia/ext/include
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/home/qiwang/c_env/lipsia/include
+export PATH=$PATH:/home/qiwang/c_env/lipsia/bin
+
+# Package for nighres
+export JCC_JDK=/usr/lib/jvm/java-8-openjdk-amd64
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
