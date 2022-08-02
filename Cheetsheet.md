@@ -64,6 +64,10 @@ Ctrl+N/Ctrl+P   # code completion using the first/previous match
 */# :           # search the word under cursor, backwards/forwards
 za              # toggle folding option
 :term           # open terminal shell in current panel 
+
+#------------quick editing------------#
+di" or di(  # put curse at the line, then delete content inside " " or ()
+{ or ( or : # get out of a {} or () or " " 
 ~~~
 ### VimTex
 more of its full list of command [here](https://github.com/lervag/vimtex/blob/e323c55e9669c1adb205295b06ec4463bae5b637/doc/vimtex.txt#L669)
