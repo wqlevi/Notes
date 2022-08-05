@@ -57,12 +57,16 @@ a example .vimrc script [here](https://www.freecodecamp.org/news/vimrc-configura
 ~~~bash
 gt # go to next tab
 :tabnew <filename> # open new file in tab
+
+Note: when searched pattern contains [ or ], use \[ or \] instead
 :%s/foo/bar/gc  # replace ALL instance of 'foo' by 'bar' and ask for confirmation for each
 :s/foo/bar/gc   # replace INLINE instance of 'foo' by 'bar' and ask for confirmation for each
 %  # go to next matching bracket
 Ctrl+N/Ctrl+P   # code completion using the first/previous match
+Ctrl+I/Ctrl+o   # move cursor to forward/previous modified location
 */# :           # search the word under cursor, backwards/forwards
 za              # toggle folding option
+zO              # unfold to maximium level
 :term           # open terminal shell in current panel 
 
 #------------quick editing------------#
