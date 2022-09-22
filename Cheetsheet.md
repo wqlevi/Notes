@@ -67,6 +67,7 @@ Ctrl+I/Ctrl+o   # move cursor to forward/previous modified location
 */# :           # search the word under cursor, backwards/forwards
 za              # toggle folding option
 zO              # unfold to maximium level
+zr              # unfold all hierarchy
 :term           # open terminal shell in current panel 
 
 #------------quick editing------------#
