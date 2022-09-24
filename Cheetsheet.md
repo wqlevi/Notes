@@ -70,6 +70,8 @@ zO              # unfold to maximium level
 zr              # unfold all hierarchy
 :term           # open terminal shell in current panel 
 
+set wildmode=full # set the explore menu for cmd completion to default
+set wildmenu    # set wildmenu explore window
 #------------quick editing------------#
 di" or di(  # put curse at the line, then delete content inside " " or ()
 { or ( or : # get out of a {} or () or " " 
