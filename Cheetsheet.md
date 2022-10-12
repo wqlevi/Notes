@@ -53,7 +53,7 @@ git push -u origin [branch] # push commits to remote repo, and set local [branch
 ~~~
 
 ## Vim
-a example .vimrc script [here](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/)
+an example .vimrc script [here](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/)
 ~~~bash
 gt # go to next tab
 :tabnew <filename> # open new file in tab
@@ -75,6 +75,7 @@ set wildmenu    # set wildmenu explore window
 #------------quick editing------------#
 di" or di(  # put curse at the line, then delete content inside " " or ()
 { or ( or : # get out of a {} or () or " " 
+.           # repeat the last command(e.g. `dw` for deleting words)
 ~~~
 ### VimTex
 more of its full list of command [here](https://github.com/lervag/vimtex/blob/e323c55e9669c1adb205295b06ec4463bae5b637/doc/vimtex.txt#L669)
