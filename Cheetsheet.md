@@ -57,25 +57,30 @@ an example .vimrc script [here](https://www.freecodecamp.org/news/vimrc-configur
 ~~~bash
 gt # go to next tab
 :tabnew <filename> # open new file in tab
+:term           # open terminal shell in current panel 
+set wildmode=full # set the explore menu for cmd completion to default
+set wildmenu    # set wildmenu explore window
 
 Note: when searched pattern contains [ or ], use \[ or \] instead
 :%s/foo/bar/gc  # replace ALL instance of 'foo' by 'bar' and ask for confirmation for each
 :s/foo/bar/gc   # replace INLINE instance of 'foo' by 'bar' and ask for confirmation for each
-%  # go to next matching bracket
+
+%               # go to next matching bracket
+]]              # go to next { or } location
 Ctrl+N/Ctrl+P   # code completion using the first/previous match
 Ctrl+I/Ctrl+o   # move cursor to forward/previous modified location
 */# :           # search the word under cursor, backwards/forwards
 za              # toggle folding option
 zO              # unfold to maximium level
 zr              # unfold all hierarchy
-:term           # open terminal shell in current panel 
 
-set wildmode=full # set the explore menu for cmd completion to default
-set wildmenu    # set wildmenu explore window
+`.              # back to last cursor position of editing 
+.               # repeat the last command(e.g. `dw` for deleting words)
+
 #------------quick editing------------#
 di" or di(  # put curse at the line, then delete content inside " " or ()
 { or ( or : # get out of a {} or () or " " 
-.           # repeat the last command(e.g. `dw` for deleting words)
+
 ~~~
 ### VimTex
 more of its full list of command [here](https://github.com/lervag/vimtex/blob/e323c55e9669c1adb205295b06ec4463bae5b637/doc/vimtex.txt#L669)
