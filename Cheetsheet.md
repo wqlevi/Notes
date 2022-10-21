@@ -67,6 +67,7 @@ Note: when searched pattern contains [ or ], use \[ or \] instead
 
 %               # go to next matching bracket
 ]]              # go to next { or } location
+f[SYMBOL]       # go to next matching [SYMBOL]
 Ctrl+N/Ctrl+P   # code completion using the first/previous match
 Ctrl+I/Ctrl+o   # move cursor to forward/previous modified location
 */# :           # search the word under cursor, backwards/forwards
