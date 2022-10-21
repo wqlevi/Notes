@@ -40,6 +40,15 @@ cp /etc/skel/.bashrc ~/.bashrc
 declare > .bashrc.recovered
 ~~~
 
+## authorizing permission
+~~~
+chown [OPTION] [USER][:GROUP] [FILE] # change the repository or file ownership to user/group\
+                                     # if only [USER] is specified, then the ownership is changed to [USER]\
+                                     # if only [:GROUP] is specified, then the ownership is changed to [:GROUP]\
+                                     # if [USER:GROUP] are specified, the ownership is changed to both [USER] and [:GROUP]\
+                                       
+id -Gn [USER]                        # show the groups this [USER] belongs to
+~~~
 ## Nevigation on commandline
 _moving cursor_\
 `Ctrl+A`: go to the __beginning__ of the line currently typing on\
