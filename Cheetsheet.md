@@ -60,6 +60,7 @@ gt # go to next tab
 :term           # open terminal shell in current panel 
 set wildmode=full # set the explore menu for cmd completion to default
 set wildmenu    # set wildmenu explore window
+Ctrl+w+v        # open split window vertically
 
 Note: when searched pattern contains [ or ], use \[ or \] instead
 :%s/foo/bar/gc  # replace ALL instance of 'foo' by 'bar' and ask for confirmation for each
