@@ -79,11 +79,20 @@ zr              # unfold all hierarchy
 `.              # back to last cursor position of editing 
 .               # repeat the last command(e.g. `dw` for deleting words)
 
+#------------extra editing------------#
 <Insert MODE> Ctrl+v [UNICODE]   # to inplace covert unicode in vim
+ga              # display charater code name under cursor
 #------------quick editing------------#
 di" or di(  # put curse at the line, then delete content inside " " or ()
 { or ( or : # get out of a {} or () or " " 
 
+~~~
+### [Unicode.vim](https://github.com/chrisbra/unicode.vim)
+~~~bash
+# Quick completion
+<C-X><C-Z> # to complete current Unicode under cursor
+            example :
+            euro <C-X><C-Z> ➡️ 💶
 ~~~
 ### VimTex
 more of its full list of command [here](https://github.com/lervag/vimtex/blob/e323c55e9669c1adb205295b06ec4463bae5b637/doc/vimtex.txt#L669)
