@@ -24,7 +24,7 @@ if [ $? -eq 0 ]
 then 
   echo "The script is OK"
   exit 0
-esle
+else
   echo "The script failed" >&2
   exit 1
 if
