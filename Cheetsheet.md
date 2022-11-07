@@ -79,6 +79,7 @@ zr              # unfold all hierarchy
 `.              # back to last cursor position of editing 
 .               # repeat the last command(e.g. `dw` for deleting words)
 
+<Insert MODE> Ctrl+v [UNICODE]   # to inplace covert unicode in vim
 #------------quick editing------------#
 di" or di(  # put curse at the line, then delete content inside " " or ()
 { or ( or : # get out of a {} or () or " " 
