@@ -2,11 +2,12 @@
 ## Segmentation
 __Evaluation dataset__
 * Brain Tumor Segmentation Challenge(BtaTS)
-
+* ADNI
+* OSIS
 __Obstacles in segmentation__
 
 * Lack of high-quality ground truth in medical imaging
-* Difficult to converge 3D volumatric model, as well as intensity in memory
+* Difficult to converge 3D volumatric model, as well as intense usage in memory
 __GAN applications__
 > * Synthesizing FLAIR images from T1w to help brain tumor segmentation, via 3d conditional GAN.<cite> Bitting Yu, et al., 2018</cite>
 ## Augmentation 

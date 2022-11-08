@@ -22,9 +22,19 @@ All images were normlized to 0 mean 1 std as group normalization
 ### result
 Full of checkerboard artefacts
 
-## TODO
-- [ ] Try LayerNorm(G Hinton), GroupNorm(Kaiming He), Adaptive instance norm
-- [ ] Try to deploy attention mechanism for network
-- [ ] Try to deploy Squeeze-and-Extraction blocks for model
+## Pre-trained FE weights(_22 Apr 2022_)
+### Model 
+BN in FE(resnet-10, pretrained weights, not seg/TransposeConv module)
+BN in Dnet
+### dataset 
+demeaned LS2001/LS2003
+### Result
+Meaningful high resolution, but suffers from poor details
 
+## TODO
+- [x] Try LayerNorm(G Hinton), GroupNorm(Kaiming He), Adaptive instance norm
+- [ ] Try to deploy attention mechanism for network
+- [ ] Try to deploy Squeeze-and-Extraction blocks for model(same as attention)
+- [ ] Go for Implicit Neural Representation, especially SIREN, both on SR, rotation and temporal data.
+- [ ] Try ViT   
 

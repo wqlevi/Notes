@@ -5,8 +5,8 @@
 * The intuitive introduction/ explanation of deep learning models
 
 ## Programming language 
-* dot
-> in a \*.dot text file : (example.dot)
+### [dot](https://www.graphviz.org/pdf/dotguide.pdf)
+> in a \*.dot text file : (figs/example.dot)
 ~~~dot
 strict diagraph G {
 	main -> parse -> execute;
@@ -20,3 +20,5 @@ strict diagraph G {
 }
 ~~~
 > then execute `dot -Tpng example.dot -o example.png` to make and export `PNG` format of dot graph
+
+![example](figs/example.png)

@@ -1,0 +1,10 @@
+strict digraph G {
+	main -> parse -> execute;
+	main -> init;
+	main -> cleanup;
+	execute -> makestring;
+	execute -> printf;
+	execute -> compare;
+	init -> makestring;
+	main -> printf;
+}
