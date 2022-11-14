@@ -83,6 +83,26 @@ _search history_\
 _Users_\
 `~+TAB+TAB`:list all users\
 
+## Auto-completion in generic bash shell
+### Steps:
+1. Install `bash-completion`:`sudo apt install bash-completion`;
+2. Write to `~/.bashrc`, then source it:
+~~~bash
+ if ! shopt -oq posix; then
+   if [ -f /usr/share/bash-completion/bash_completion ]; then
+     . /usr/share/bash-completion/bash_completion
+   elif [ -f /etc/bash_completion ]; then
+     . /etc/bash_completion
+   fi
+ fi
+~~~
+3. Assign some completion to the cmd: `complete [TARGET ARGUMENTS] [COMMAND TO BE ASSIGNED TO]`, an example:
+~~~bash
+$ complete name@remote.domain ssh 
+$ ssh [TAB] 
+ssh name@remote.domain
+~~~
+4. Done
 
 
 
