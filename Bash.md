@@ -98,7 +98,7 @@ _Users_\
 ~~~
 3. Assign some completion to the cmd: `complete [TARGET ARGUMENTS] [COMMAND TO BE ASSIGNED TO]`, an example:
 ~~~bash
-$ complete name@remote.domain ssh 
+$ complete -W name@remote.domain ssh 
 $ ssh [TAB] 
 ssh name@remote.domain
 ~~~
