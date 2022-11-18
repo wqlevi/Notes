@@ -106,6 +106,12 @@ ssh name@remote.domain
 
 
 
+## Installing softwares
+### Steps:
+1. Download and unzip(e.g. to a /downloads/pkg/software folder, which include bin and includes)
+2. Put such software bundle into /opt/ folder, cuz its a convention
+3. Create symbolic link from this /opt/pkg/software/bin/software to /bin/software, also a convention
+4. Add such /bin or your $HOME/bin folder to $PATH, for convenient launching.
 
 
 
