@@ -114,5 +114,6 @@ ssh name@remote.domain
 4. Add such /bin or your $HOME/bin folder to $PATH, for convenient launching.
 
 
-
+### Generic Software
+#### [ImageMagick](Manuals/ImageMagick.md)
 
