@@ -20,6 +20,6 @@ $ convert image_in.png -gravity [DIRECTION] -chop [SIZE] image_out.png
 ### Add border 
 ```bash
 # Usage: [SIZE] is in form of: WxH
-#        [COLORNAME] could also be hexadecimal(note: enclosed by '')
+#        [COLORNAME] could also be hexadecimal(e.g. enclosed by '#FFE15D' or 'rgb(0,255,255)' )
 $ convert image_in.png -bordercolor [COLORNAME] -border [SIZE] image_out.png
 ```
