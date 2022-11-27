@@ -92,6 +92,7 @@ di" or di(  # put curse at the line, then delete content inside " " or ()
 { or ( or : # get out of a {} or () or " " 
 #------------file editing------------#
 [VISUAL MODE]: w newfile.txt     # save highlighted text to new file
+[VISUAL MODE] "*y                # copy highlighted text to system clipboard
 :r newfile.txt  # load and past newfile to cursor location
 :!ctags *.c     # generate tags for all *.c file in current dir, then each function could be accessed by <C-]> or go backwards by <C-T>
 
