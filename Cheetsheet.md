@@ -132,3 +132,6 @@ check out how to strike out words using packages [here](https://jansoehlke.com/2
 ~~~tex
 \LaTex
 ~~~
+
+## Markdown
+* Line break: 2 training space(or put 2 spaces after the first line.)
