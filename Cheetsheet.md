@@ -90,6 +90,9 @@ marks [SYMBOL]  # show specific mark [SYMBOL] location
 #------------quick editing------------#
 di" or di(  # put curse at the line, then delete content inside " " or ()
 { or ( or : # get out of a {} or () or " " 
+q<a-z> [SOME ACTIONS]  # to record the action following the letter in <a-z> into register, press q again to end recording
+@<a-z>                 # repeat the recorded action
+
 #------------file editing------------#
 [VISUAL MODE]: w newfile.txt     # save highlighted text to new file
 [VISUAL MODE] "*y                # copy highlighted text to system clipboard
