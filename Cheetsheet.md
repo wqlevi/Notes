@@ -26,6 +26,11 @@ git config --global user.name "MYNAME"
 git config --global user.email "some@mail.com"
 git config --global color.ui auto # enable auto coloring
 
+# Git SSH:
+ssh-keygen -t ed25519 -C "your_email@example.com"  # generate new SSH key, by creating pair of new file(e.g. id_ed25519, id_ed25519.pub)
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519 # save password phase into such file
+
 git clone <url> #clone a existing repo from git(from <url>)
 git clone <branch> <url> # clone specific branch from <url>
 git pull origin [branch] # update local repo from git and [branch]
