@@ -83,6 +83,18 @@ _search history_\
 _Users_\
 `~+TAB+TAB`:list all users\
 
+## check file exitstance
+~~~bash
+if [[-d "$DIR"]]
+then 
+  echo "$DIR exists!"
+fi
+
+if [[-f "$FILE"]]
+then echo "$FILE exists!"
+fi
+~~~
+
 ## Auto-completion in generic bash shell
 ### Steps:
 1. Install `bash-completion`:`sudo apt install bash-completion`;
