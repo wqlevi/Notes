@@ -40,6 +40,12 @@ cp /etc/skel/.bashrc ~/.bashrc
 declare > .bashrc.recovered
 ~~~
 
+Put alias in seperated file(e.g. `~/.bash_alias`), called by `./bashrc`
+
+~~~bash
+source ~/.bash_alias
+~~~
+
 ## authorizing permission
 ~~~
 chown [OPTION] [USER][:GROUP] [FILE] # change the repository or file ownership to user/group\
@@ -117,6 +123,11 @@ ssh name@remote.domain
 4. Done
 
 
+## Moving the files
+* moving last 100 files from _current_dir_ to _new_dir_: 
+~~~bash
+mv -t new_dir `ls current_dir | tail -n 100` 
+~~~
 
 ## Installing softwares
 ### Steps:
