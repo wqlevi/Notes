@@ -55,6 +55,24 @@ chown [OPTION] [USER][:GROUP] [FILE] # change the repository or file ownership t
                                        
 id -Gn [USER]                        # show the groups this [USER] belongs to
 ~~~
+
+## Colorize python output to shell prompt
+~~~python
+class color_code:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+print(f"{bcolors.WARNING}Warning: No active frommets remain. Continue?{bcolors.ENDC}")
+~~~
+
+---
 ## Nevigation on commandline
 _moving cursor_\
 `Ctrl+A`: go to the __beginning__ of the line currently typing on\
