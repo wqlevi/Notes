@@ -69,7 +69,7 @@ class color_code:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-print(f"{bcolors.WARNING}Warning: No active frommets remain. Continue?{bcolors.ENDC}")
+print(f"{color_code.WARNING}Warning: No active frommets remain. Continue?{color_code.ENDC}")
 ~~~
 
 ---
