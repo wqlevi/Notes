@@ -41,6 +41,7 @@ git reset <file> # unstage a file
 git diff # different of whats changed but not staged
 git diff --staged # different of whats staged but not committed
 git commit -m "MESSAGE TO COMMIT" 
+git rm --cache <file> # untack a local file, put it into cache
 
 git branch # list all branches, a star(*) will appear next to current activate branch
 git branch <branch_name> #create new branch
