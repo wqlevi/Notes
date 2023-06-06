@@ -146,6 +146,11 @@ ssh name@remote.domain
 ~~~bash
 mv -t new_dir `ls current_dir | tail -n 100` 
 ~~~
+* movign from remote server back to local machine:
+~~~bash
+rsync -aP -e 'ssh -J MyUsername@gateafs.mpcdf.mpg.de' source/dir MyUsername@eris01.bc.rzg.mpg.de:/destination
+# reverse the source and distination when reverse the transferring
+~~~
 
 ## Installing softwares
 ### Steps:
