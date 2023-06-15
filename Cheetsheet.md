@@ -56,6 +56,10 @@ git diff <branch_A> <branch_B> # show difference between branch_A and branch_B
 git remote add origin <url> # create a git repo from local repo
 git branch -M main
 git push -u origin [branch] # push commits to remote repo, and set local [branch] as upstream
+
+# change remote from URL to SSH
+git remote set-url <SSH/repo/address>
+git remote -v # check with this command
 ~~~
 
 ## Vim
