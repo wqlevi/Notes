@@ -166,6 +166,6 @@ rsync -aP -e 'ssh -J MyUsername@gateafs.mpcdf.mpg.de' source/dir MyUsername@eris
 identity <file> #tells basic spatial information of image
 convert -/+append [<input_1> <input_2>...] <output> # append vertical/horizontal
 convert <file> -crop 1xn@ out-%d.png # split one evenly to n
-mogrify -resize Nx *.png # rescale image by given width N proportionally 
+mogrify <file> -resize Nx *.png # rescale image by given width N proportionally 
 ~~~
 
