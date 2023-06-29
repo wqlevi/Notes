@@ -146,6 +146,7 @@ check out how to strike out words using packages [here](https://jansoehlke.com/2
 \LaTex
 ~~~
 
+Plotting package: [Tikz](https://tikz.dev/)
 * For plotting package `Pgfplot`, memory overflow happens often, instead of modifying `textmf.cnf`, it's easier to compile with `lualatex -shell-escape <file>` other than `pdflatex -shell-escape <file>` 
 
 ## Markdown
