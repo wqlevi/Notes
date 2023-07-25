@@ -119,6 +119,14 @@ then echo "$FILE exists!"
 fi
 ~~~
 
+## Monitor machine activities 
+__MacOS__
+~~~bash
+# on an Intel CPU machine:
+# using measurement from the SMC sensor
+powermetrics --sample smc | grep -i "CPU die temperature"
+~~~
+
 ## Auto-completion in generic bash shell
 ### Steps:
 1. Install `bash-completion`:`sudo apt install bash-completion`;
