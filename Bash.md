@@ -177,3 +177,9 @@ convert <file> -crop 1xn@ out-%d.png # split one evenly to n
 mogrify <file> -resize Nx *.png # rescale image by given width N proportionally 
 ~~~
 
+### Commandline tools
+#### [AWK](https://www.geeksforgeeks.org/awk-command-unixlinux-examples/)
+#### CPU temperature
+~~~bash
+paste <(/sys/class/thermal/thermal_zone*/temp) | column -s $'\t' -t | sed 's/\(.\)..$/.\1°C/'
+~~~
