@@ -125,6 +125,9 @@ __MacOS__
 # on an Intel CPU machine:
 # using measurement from the SMC sensor
 powermetrics --sample smc | grep -i "CPU die temperature"
+
+# Nvidia-smi monitoring (updating per 1 sec)
+nvidia-smi -l 1
 ~~~
 
 ## Auto-completion in generic bash shell
