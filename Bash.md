@@ -119,6 +119,11 @@ then echo "$FILE exists!"
 fi
 ~~~
 
+## Create multiple files without writting content
+~~~bash
+touch file1 file2
+~~~
+
 ## Monitor machine activities 
 __MacOS__
 ~~~bash
