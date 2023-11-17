@@ -151,3 +151,6 @@ Plotting package: [Tikz](https://tikz.dev/)
 
 ## Markdown
 * Line break: 2 training space(or put 2 spaces after the first line.)
+
+## Gnome Ubuntu Files window
+* Press `F3` to vertical split an identical window for moving files
