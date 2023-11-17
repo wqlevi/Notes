@@ -128,6 +128,15 @@ powermetrics --sample smc | grep -i "CPU die temperature"
 
 # Nvidia-smi monitoring (updating per 1 sec)
 nvidia-smi -l 1
+
+# Monitor free space in disk and swap
+free -h
+
+# updating the output from the command
+watch -n [SECOND]
+
+# list processes
+ps aux
 ~~~
 
 ## Auto-completion in generic bash shell
