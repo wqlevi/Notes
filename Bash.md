@@ -123,6 +123,10 @@ fi
 ~~~bash
 touch file1 file2
 ~~~
+## View a file with read-only
+~~~bash
+view file.txt
+~~~
 
 ## Monitor machine activities 
 __MacOS__
