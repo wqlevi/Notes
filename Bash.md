@@ -146,6 +146,9 @@ watch -n [SECOND]
 
 # list processes
 ps aux
+
+# list system informations
+inxi -F
 ~~~
 
 ## Auto-completion in generic bash shell
