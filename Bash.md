@@ -207,3 +207,11 @@ mogrify <file> -resize Nx *.png # rescale image by given width N proportionally
 ~~~bash
 paste <(/sys/class/thermal/thermal_zone*/temp) | column -s $'\t' -t | sed 's/\(.\)..$/.\1°C/'
 ~~~
+#### [Whiptail](https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail)
+used for creating visualization window in shell environment
+~~~bash
+TERM=ansi # first of all set ansi as terminal encoding
+https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail # an example of displaying text content
+~~~
+
+
