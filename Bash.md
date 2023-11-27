@@ -7,15 +7,15 @@ A simple example could be addressed here:
 ~~~bash
 cd dir_exist
 echo $?
-# This means program ran properly thus returns 0
+# This means the program ran properly and thus returns 0
 >>> 0
 
 cd dir_non_exist
 echo $?
-# This means a general error, since directory is non-existed
+# This means a general error since directory is non-existent
 >>> 1
 ~~~
-One could also write a follow-up script to show status per program:
+One could also write a follow-up script to show the status per program:
 ~~~bash
 #!/bin/bash
 
@@ -33,14 +33,14 @@ Since numbers from 0 to 255 represent detailed exit status, could be better to c
 
 ## overwritten Bashrc
 To retrieve the mistakenly overwritten bashrc file:
-if the shell session running previous bashrc is still active:
+if the shell session running the previous bashrc is still active:
 ~~~bash
 cp /etc/skel/.bashrc ~/.bashrc
 #or
 declare > .bashrc.recovered
 ~~~
 
-Put alias in seperated file(e.g. `~/.bash_alias`), called by `./bashrc`
+Put alias in separated file(e.g. `~/.bash_alias`), called by `./bashrc`
 
 ~~~bash
 source ~/.bash_alias
@@ -56,7 +56,7 @@ chown [OPTION] [USER][:GROUP] [FILE] # change the repository or file ownership t
 id -Gn [USER]                        # show the groups this [USER] belongs to
 ~~~
 
-## Colorize python output to shell prompt
+## Colorize Python output to the shell prompt
 ~~~python
 class color_code:
     HEADER = '\033[95m'
@@ -73,21 +73,21 @@ print(f"{color_code.WARNING}Warning: No active frommets remain. Continue?{color_
 ~~~
 
 ---
-## Nevigation on commandline
+## Navigation on command line
 _moving cursor_\
 `Ctrl+A`: go to the __beginning__ of the line currently typing on\
 `Ctrl+E`: go to the __end__ of the line currently typing on \
 `Ctrl+xx`: move between the beginning of the line and the cursor position\
 `Alt+F`: move the cursor one word forward\
 `Alt+B`: move the cursor one word backward\
-`Ctrl+F`: move the cursor one charactor forward\
-`Ctrl+B`: move the cursor one charactor backward\
+`Ctrl+F`: move the cursor one character forward\
+`Ctrl+B`: move the cursor one character backward\
 
 _cutting/ pasting_\
-`Ctrl+U`: cut the current line from cursor position to beginning of the line\
-`Ctrl+K`: cut the current line from cursor position to end of the line\
+`Ctrl+U`: cut the current line from the cursor position to the beginning of the line\
+`Ctrl+K`: cut the current line from the cursor position to the end of the line\
 `Ctrl+W`: delete the word before the cursor, adding to the clipboard\
-`Ctrl+Y`: pasting the thing on clipboard to current line \
+`Ctrl+Y`: pasting the thing on the clipboard to the current line \
 
 _search history_\
 `Ctrl+R`: search through the command history\
@@ -98,16 +98,16 @@ _search history_\
 `!!`: display last executed command\
 `!*`: display the argument of the last command\
 
-`Ctrl+S`: stop the output of program to screen\
+`Ctrl+S`: stop the output of a program to screen\
 `Ctrl+Q`: resume the output to the screen\
 `Ctrl+C`: end current progress and return to prompt\
 `Ctrl+D`: logout of current session\
-`Ctrl+Z`: suspend foreground process, use `bg` to take it to background, or `fb` to bring it back to foreground\
+`Ctrl+Z`: suspend foreground process, use `bg` to take it to the background, or `fb` to bring it back to the foreground\
 
 _Users_\
 `~+TAB+TAB`:list all users\
 
-## check file exitstance
+## check file existence
 ~~~bash
 if [[-d "$DIR"]]
 then 
@@ -119,7 +119,7 @@ then echo "$FILE exists!"
 fi
 ~~~
 
-## Create multiple files without writting content
+## Create multiple files without writing content
 ~~~bash
 touch file1 file2
 ~~~
@@ -132,7 +132,7 @@ view file.txt
 __MacOS__
 ~~~bash
 # on an Intel CPU machine:
-# using measurement from the SMC sensor
+# Using measurement from the SMC sensor
 powermetrics --sample smc | grep -i "CPU die temperature"
 
 # Nvidia-smi monitoring (updating per 1 sec)
@@ -147,7 +147,7 @@ watch -n [SECOND]
 # list processes
 ps aux
 
-# list system informations
+# list system information
 inxi -F
 ~~~
 
@@ -178,16 +178,16 @@ ssh name@remote.domain
 ~~~bash
 mv -t new_dir `ls current_dir | tail -n 100` 
 ~~~
-* movign from remote server back to local machine:
+* moving from remote server back to local machine:
 ~~~bash
 rsync -aP -e 'ssh -J MyUsername@gateafs.mpcdf.mpg.de' source/dir MyUsername@eris01.bc.rzg.mpg.de:/destination
-# reverse the source and distination when reverse the transferring
+# reverse the source and destination when reverse the transferring
 ~~~
 
-## Installing softwares
+## Installing software
 ### Steps:
 1. Download and unzip(e.g. to a `/downloads/pkg/software` folder, which include bin and includes)
-2. Put such software bundle into `~/.local/share` folder, cuz its a convention
+2. Put such software bundle into `~/.local/share` folder because it is a convention
 3. Create symbolic link(e.g. `ln -s ~/.local/share/software/bin/exe ~/.local/bin/exe`)
 4. Add such `~/.local/bin` or your `$HOME/bin` folder to `$PATH`, for convenient launching.
 
@@ -195,7 +195,7 @@ rsync -aP -e 'ssh -J MyUsername@gateafs.mpcdf.mpg.de' source/dir MyUsername@eris
 ### Generic Software
 #### [ImageMagick](Manuals/ImageMagick.md)
 ~~~bash
-identity <file> #tells basic spatial information of image
+identity <file> #tells basic spatial information of the image
 convert -/+append [<input_1> <input_2>...] <output> # append vertical/horizontal
 convert <file> -crop 1xn@ out-%d.png # split one evenly to n
 mogrify <file> -resize Nx *.png # rescale image by given width N proportionally 
@@ -208,10 +208,12 @@ mogrify <file> -resize Nx *.png # rescale image by given width N proportionally
 paste <(/sys/class/thermal/thermal_zone*/temp) | column -s $'\t' -t | sed 's/\(.\)..$/.\1°C/'
 ~~~
 #### [Whiptail](https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail)
-used for creating visualization window in shell environment
+used for creating visualization windows in shell environment
 ~~~bash
-TERM=ansi # first of all set ansi as terminal encoding
+TERM=ansi # First of all set ansi as the terminal encoding
 https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail # an example of displaying text content
 ~~~
 
+#### [cron](https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm)
+A scheduler executes customized commands at a specific time.
 
