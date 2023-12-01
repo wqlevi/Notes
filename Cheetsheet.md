@@ -66,10 +66,18 @@ git remote -v # check with this command
 an example .vimrc script [here](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/) and a [book](https://learnvimscriptthehardway.stevelosh.com/)
 ~~~bash
 gt # go to next tab
+gf # go to the definition of the file path where the cursor is hovering on
 :tabnew <filename> # open new file in tab
-:term           # open terminal shell in current panel 
+:term           # open terminal shell in current panel
+
+#------------extra settings------------#
 set wildmode=full # set the explore menu for cmd completion to default
 set wildmenu    # set wildmenu explore window
+
+set tabstop=4   # set TAB = 4*SPACE
+set shiftwidth=4
+set expandtab
+
 Ctrl+w+v        # open split window vertically
 
 Note: when searched pattern contains [ or ], use \[ or \] instead
