@@ -147,6 +147,9 @@ watch -n [SECOND]
 # list processes
 ps aux
 
+# list owner of the PID
+ps -u -p [PID]
+
 # list system information
 inxi -F
 ~~~
