@@ -187,6 +187,11 @@ rsync -aP -e 'ssh -J MyUsername@gateafs.mpcdf.mpg.de' source/dir MyUsername@eris
 # reverse the source and destination when reverse the transferring
 ~~~
 
+## Checking libraries linked to binaries
+~~~bash
+lld <binary>
+# note the dependent libraries should have consistent versions
+~~~
 ## Installing software
 ### Steps:
 1. Download and unzip(e.g. to a `/downloads/pkg/software` folder, which include bin and includes)
