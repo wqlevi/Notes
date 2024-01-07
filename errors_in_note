@@ -1,0 +1,10 @@
+# Logging frequent problem and solutions
+
+## Linux wise
+- [x] "libtinfo.so.6 has no version information", commonly it's suggested to `conda install conda-forge::ncurses`, but this messes up `vifm` who looks for system ncurses in `/usr/lib/x86_.../libtinfo.so.xx`;
+  * simply don't hard code `LD_LIBRARAY_PATH` to some conda env, where a different `libtinfo` is installed;
+
+
+## Python config (version conflicts)
+- [x] JAX does not find GPU, which PyTorch find;
+  * Usually CUDA-xx not matching, considering upgrade JAX in accordance to CUDA version
