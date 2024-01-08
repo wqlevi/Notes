@@ -138,6 +138,17 @@ more of its full list of command [here](https://github.com/lervag/vimtex/blob/e3
 :tse # to toggle "*" in environments
 ]] # * in NORMAL mode jump to next block | in INSERT mode close the environment
 ~~~
+### Coc Vim LSP
+~~~bash
+  call coc#config('python', {
+  \   'jediEnabled': v:false,
+  \   'pythonPath': split(execute('!which python'), '\n')[-1]
+  \ }) # automatically parse current python env to the LSP
+# or
+CocCommand python.setInterpreter # the choose target env
+
+~~~
+
 ### Zathura
 more of the shortcuts for the viewer is listed [here](http://manpages.ubuntu.com/manpages/xenial/man1/zathura.1.html)
 ~~~bash
