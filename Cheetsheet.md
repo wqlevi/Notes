@@ -118,6 +118,12 @@ q<a-z> [SOME ACTIONS]  # to record the action following the letter in <a-z> into
 :r newfile.txt  # load and past newfile to cursor location
 :!ctags *.c     # generate tags for all *.c file in current dir, then each function could be accessed by <C-]> or go backwards by <C-T>
 
+#------------autocmd define------------#
+:%s/FIXME//gn   # for counting numbers of 'FIXME' keywords in current buffer
+# [TODO] @ 16 Jan 2024
+# 1. auto run such command per buffer opening
+# 2. Check for all keywords (e.g. TODO)
+# 3. show them in statusbar
 ~~~
 ### [Unicode.vim](https://github.com/chrisbra/unicode.vim)
 ~~~bash
