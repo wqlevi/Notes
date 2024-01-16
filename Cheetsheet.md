@@ -112,6 +112,7 @@ q<a-z> [SOME ACTIONS]  # to record the action following the letter in <a-z> into
 @<a-z>                 # repeat the recorded action
 
 #------------file editing------------#
+`t`             # for selecting files in VIFM then use `y` to yank
 [VISUAL MODE]: w newfile.txt     # save highlighted text to new file
 [VISUAL MODE] "*y                # copy highlighted text to system clipboard
 :r newfile.txt  # load and past newfile to cursor location
