@@ -63,7 +63,7 @@ git remote -v # check with this command
 ~~~
 
 ## [Vim](https://vimhelp.org/usr_toc.txt.html)
-an example .vimrc script [here](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/) and a [book](https://learnvimscriptthehardway.stevelosh.com/)
+an example .vimrc script [here](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/) and a [book](https://learnvimscriptthehardway.stevelosh.com/) and [cheetsheet](https://vim.rtorr.com/)
 ~~~bash
 gt # go to next tab
 gf # go to the definition of the file path where the cursor is hovering on
