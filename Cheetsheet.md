@@ -90,6 +90,9 @@ f[SYMBOL]       # go to next matching [SYMBOL]
 Ctrl+N/Ctrl+P   # code completion using the first/previous match
 Ctrl+I/Ctrl+o   # move cursor to forward/previous modified location
 */# :           # search the word under cursor, backwards/forwards
+zz              # move cursor line top middle of screen
+zt              # move cursor line top top of screen
+zb              # move cursor line top bottom of screen
 za              # toggle folding option
 zO              # unfold to maximium level
 zr              # unfold all hierarchy
