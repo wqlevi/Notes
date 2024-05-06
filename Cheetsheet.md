@@ -1,4 +1,10 @@
-
+# ToC
+1. [Git](#git)
+2. [Vim](#vim)
+   1. [Unicode.vim](unicode-vim)
+   2. [VimTex](vimtex)
+   3. [Coc Vim LSP](Coc-lsp)
+4. [Latex](#latex)
 ## Typora:
 ~~~ python
 Ctrl+/	# Toggle between source code mode and displayed
@@ -173,6 +179,17 @@ q # quit
 check out how to strike out words using packages [here](https://jansoehlke.com/2010/06/strikethrough-in-latex/)
 ~~~tex
 \LaTex
+~~~
+### 1. Installing to without root access:
+~~~bash
+cd /your/destinated/repo
+wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+zcat < install-tl-unx.tar.gz | tar xf -
+cd install-tl-*
+perl ./install-tl
+>>> choose <D> to specify the destination repository
+>>> return to menu <R>
+>>> proceed with installation <I>
 ~~~
 
 Plotting package: [Tikz](https://tikz.dev/)
