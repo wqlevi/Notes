@@ -1,5 +1,12 @@
 set hlsearch
 syntax on
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+
 autocmd vimenter * ++nested colorscheme gruvbox
 set termguicolors
 set background=dark
