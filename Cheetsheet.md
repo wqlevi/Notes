@@ -192,6 +192,17 @@ perl ./install-tl
 >>> proceed with installation <I>
 ~~~
 
+## Install pkg without root
+* Download prebuilt binaries for the system
+1. Download prebuilt binaries
+2. Unzip and put the folder(which contains `bin` folder), maybe in `$HOME/.local`
+3. put a soft link to the binaries in `bin` in `$HOME/bin`, which should be defined in `$PATH`
+
+* Build from source (e.g. using makefiles)
+1. `./configure --prefix=<the customized dir>`
+2. make
+3. make install
+
 Plotting package: [Tikz](https://tikz.dev/)
 * For plotting package `Pgfplot`, memory overflow happens often, instead of modifying `textmf.cnf`, it's easier to compile with `lualatex -shell-escape <file>` other than `pdflatex -shell-escape <file>` 
 
