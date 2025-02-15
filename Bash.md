@@ -211,6 +211,13 @@ mogrify <file> -resize Nx *.png # rescale image by given width N proportionally
 
 ### Commandline tools
 #### [AWK](https://www.geeksforgeeks.org/awk-command-unixlinux-examples/)
+
+#### [find](https://opensource.com/article/18/4/how-use-find-linux)
+~~~bash
+find <path name> -name '<name string>' -exec <command> {}\;
+# example:
+find ./ -name 'file[0-9].png' -exec rm {} \; # remove files whose names end with 'file0.png', 'file1.png',... 'files9.png';
+~~~
 #### CPU temperature
 ~~~bash
 paste <(/sys/class/thermal/thermal_zone*/temp) | column -s $'\t' -t | sed 's/\(.\)..$/.\1°C/'
