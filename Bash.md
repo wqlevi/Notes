@@ -1,6 +1,20 @@
 # Bash
 
-## Exit code
+# ToC
+1. [Exit code](#exit-code)
+2. [overwritten Bashrc](#overwritten-bashrc)
+3. [Permissions](#authorizing-permission)
+4. [Colorised stdout shell](#colorize-python-output-to-the-shell)
+5. [Navigation cmd](#navigation-on-commandline)
+6. [Conditions](#conditional-flags)
+7. [File operation](#file-operations)
+8. [GNU softwares](#generic-software)
+  * [ImageMagick](ImageMagick)
+  * [awk](AWK)
+  * [find](find)
+  * [FZF](fzf)
+
+## Exit code:
 The exit code refers to a returning status from an execution, both in bash and C such status was implemented.
 
 A simple example could be addressed here:
@@ -56,7 +70,7 @@ chown [OPTION] [USER][:GROUP] [FILE] # change the repository or file ownership t
 id -Gn [USER]                        # show the groups this [USER] belongs to
 ~~~
 
-## Colorize Python output to the shell prompt
+## Colorize Python output to the shell
 ~~~python
 class color_code:
     HEADER = '\033[95m'
@@ -73,7 +87,7 @@ print(f"{color_code.WARNING}Warning: No active frommets remain. Continue?{color_
 ~~~
 
 ---
-## Navigation on command line
+## Navigation on commandline
 _moving cursor_\
 `Ctrl+A`: go to the __beginning__ of the line currently typing on\
 `Ctrl+E`: go to the __end__ of the line currently typing on \
@@ -107,7 +121,7 @@ _search history_\
 _Users_\
 `~+TAB+TAB`:list all users\
 
-## check file existence
+## conditional flags
 ~~~bash
 if [[-d "$DIR"]]
 then 
@@ -119,12 +133,12 @@ then echo "$FILE exists!"
 fi
 ~~~
 
-## Create multiple files without writing content
+## file operations
 ~~~bash
+# create fiile without content
 touch file1 file2
-~~~
-## View a file with read-only
-~~~bash
+
+# View a file with read-only
 view file.txt
 ~~~
 
@@ -209,10 +223,29 @@ convert <file> -crop 1xn@ out-%d.png # split one evenly to n
 mogrify <file> -resize Nx *.png # rescale image by given width N proportionally 
 ~~~
 
-### Commandline tools
-#### [AWK](https://www.geeksforgeeks.org/awk-command-unixlinux-examples/)
 
-#### [find](https://opensource.com/article/18/4/how-use-find-linux)
+### [AWK](https://www.geeksforgeeks.org/awk-command-unixlinux-examples/)
+* line-based pattern search and operations
+* Built-in variables:
+  - $0, $1, $2..., where $0 is the entire line, $1, $2, ..., corresponds to its columns;
+  - NR: number of input records (lines with content);
+  - NF: amount of fields in current input record (lines);
+  - FS: contains fields separator charactor to divide fields on input lines; default: SPACE;
+~~~bash
+awk '{print NR,$0}' example.txt     # print each lines
+awk 'END {print NR}' example.txt    # print number of lines
+awk '{print $1, $NF}' example.txt   # print 1st cell and its fields(cell)
+awk 'NR==3, NR==5 {print NR, $0}' example.txt # print records (lines) between line3 and line5;
+awk '{print NR "- " $0}' example.txt# print "line number- lines"
+awk 'NF==0 {print NR}' example.txt  # print line numbers which has 0 cell, eg. empty lines
+
+awk '/<pattern>/ {print}' example.txt         #  print lines matching the <pattern>
+~~~
+
+### [find](https://opensource.com/article/18/4/how-use-find-linux)
+
+### [fzf](https://github.com/junegunn/fzf)
+
 ~~~bash
 find <path name> -name '<name string>' -exec <command> {}\;
 # example:
