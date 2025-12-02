@@ -12,13 +12,31 @@ x/X         # delete character to the right/ left of cursor
 dw/db/d{/D/(d/[text])  # delete word/ till begin of word/ begin of paragraph etc./ till end of line/ delete till next [text]
 dd          # delete line
 u/U         # undo/ undo till before any changes
-:redo       # redo
+:redo       # redo or '<C-r>'
 o/O         # open new line(below/ above)
 r           # replace character selected by cursor
 cw/cB/c0/c$(C)    # change to end of word/ from beginning of non-blank word/ till beginning of line/ till end of line/ current whole linew
 
+# visual mode editing (make sure u r in --VISUAL--)
+u/U         # un-/capitalize the letter selected under cursor
+Shift >     # shift selected LINE by a tab forward (Shift >) or backwards (Shift <)
+
+-- BUFFERS -- 
+# create an empty file
+$ touch filename 
+
 # Read only file
 $ view filename
+
+# open a files in buffers
+:e filename
+            # open filename in current buffer
+:tabe filename 
+            # open filename in new tab
+<C-6>       # toggle among files in this buffer
+gt/gT       # toggle among tabs
+
+
 
 # Additional windows
 CONTROL-Wn  # open new window with new file
@@ -31,6 +49,7 @@ CONTROL-Ww  # switch cursor between windows
     k       #      up
    h l      # left    right
     j       #     down
+# prefxing with a 'g' allows inline movement (useful when a line looks longer in editor display), such as 'gj' to go up within a line;
 
 SPACE/BACKSPACE 
             # move cursor forward/backward
@@ -49,7 +68,7 @@ CONTROL-E/Y # scroll continuously of screen
 CONTROL-F   # scroll forward screen to next file
 CONTROL-B   # scroll back screen to previous file
 
-# Searching
+# Searching patterns
 
 n/N         # previous search history/ inversely displyed
 \           # this turns off special function of special symbols(e.g. / # ^ $ etc.)
@@ -75,15 +94,25 @@ n/N         # previous search history/ inversely displyed
 :%s/\<ten\>/10/g
             # replace all word 'ten' to '10'
 
+# grep across multiple files
+:vimgrep /pattern/ **/*.py 
+            # grep all matchs of "pattern" in all *.py files, in current and subdirectories 
+:cn         # move forward in the results
+:cp         # movee backwards 
+
 # show file status
-CONTROL-G   # show information of current file
+<C-g>   # show information of current file
 
 # repeat the last command
-:.
+.          # repeat the last command
+`.         # go back to the last modified position
+<C-R>      # redo
+    
+
 
 # copy paste
-y           # yank a char
-p/P         # paste a char after/before current line
+y          # yank a char
+p/P        # paste a char after/before current line
 
 # open dual file
 $ vim -o/-O filename1 filename2 # open horizontal/vertical split screen with two files opened
