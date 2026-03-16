@@ -1,0 +1,224 @@
+[07]björn-thesis-ethz.pdf
+[07]Introduction to the theory of stochastic processes and Brownian motion problems.pdf
+[14]Newton Schrödinger equation and its foundations.pdf
+[17]A Geometric View of Optimal Transportation and Generative Model.pdf
+[18]how to write a first class paper.pdf
+[18]Latent Space Optimal Transport for Generative Model.pdf
+[21]FOKKER-PLANCK- AND LANGEVIN EQUATION.pdf
+[21]Large scale wasserstein gradient flows.pdf
+[21]segmenter.pdf
+[22]CLASSIFIER-FREE DIFFUSION GUIDANCE.pdf
+[22]Deep Generative modeling a review.pdf
+[22]PINN.pdf
+[22]The flow map of the fokker planck equation does not provide OT.pdf
+[23][Pyre]Unbalanced OT.pdf
+[23]3D Diffusion model for medical image generation.pdf
+[23]a three player gan in MRI.pdf
+[23]Boosting latent diffusion with FM.pdf
+[23]consistency trajectory models.pdf
+[23]Harmonic self conditioned flow matching for mutli ligand docking and binding site design.pdf
+[23]improved VQ diffusion.pdf
+[23]Matryoshka Diffusion.pdf
+[23]MRXCAT2.pdf
+[23]Probability flow solution of FP equation.pdf
+[23]PROBABILITY FLOW SOLUTION OF THE FOKKER-PLANCK EQUATION.pdf
+[23]probability solution of FPE.pdf
+[23]Recent advances in optimal tranport for machine learning.pdf
+[24]astroCLIP.pdf
+[24]autoregressive image generation without vq.pdf
+[24]autoregressive models in vision survey.pdf
+[24]BiGR.pdf
+[24]Diffeomorphic Measure Matching with Kernels for Generative Modeling.pdf
+[24]Diffuse and Disperse- Image Generation with Representation Regularization.pdf
+[24]Discrete flow matching.pdf
+[24]emu3.pdf
+[24]epsilon-VAE.pdf
+[24]Flow matching guide and code.pdf
+[24]Leveraging foundation model for information retrievial on medical imaging.pdf
+[24]LlamaGen.pdf
+[24]llvm for low level vision.pdf
+[24]Mamba.pdf
+[24]MRXCAT2.pdf
+[24]OMG LLaVA.pdf
+[24]one step diffusion via shortcut models.pdf
+[24]Representation alignment for diffusion transformer.pdf
+[24]RESMatch- Referring Expression Segmentation in a Semi-Supervised Manner.pdf
+[24]simplifying stabilizing scaling continous time consistency models .pdf
+[24]step by step diffusion elementart tutorial.pdf
+[24manual]CMR segmentation.pdf
+[25]A fine grained error analysis on sampling of ddpm.pdf
+[25]A Fourier space perspective on diffusion models.pdf
+[25]A geometric framework for momentum-based optimizers for low-rank training.pdf
+[25]Bayesian flow networks.pdf
+[25]Bayesian generative models can flag performance loss, bias, and out-of-distribution image content.pdf
+[25]Breaking the Sorting Barrier for Directed Single-Source shortest paths.pdf
+[25]bridging continous and discrete tokens for autoregressive visual generation.pdf
+[25]Curvature guided flow matching for image generation.pdf
+[25]DEEP HIERARCHICAL LEARNING WITH NESTED SUBSPACE NETWORKS.pdf
+[25]EQUILIBRIUM MATCHING.pdf
+[25]Fractal generative models.pdf
+[25]From Denoising Score Matching to Langevin Sampling- A Fine-Grained Error Analysis in the Gaussian Setting.pdf
+[25]Generative thermodynamic computing.pdf
+[25]Guiding diffusion models to reconstruct flow fields from sparse data.pdf
+[25]MedCLIP-SAMv2.pdf
+[25]medsamix.pdf
+[25]Navigating the latent space dynamics of neural models.pdf
+[25]One step diffusion without distillation.pdf
+[25]Optimal transport for machine learners.pdf
+[25]Reconstruct Anything Model a light foundation model for computational imaging.pdf
+[25]Score-based Diffusion Models in Function Space.pdf
+[25]SELF-CONSISTENT PROBABILITY FLOW FOR HIGH-DIMENSIONAL FOKKER-PLANCK EQUATIONS.pdf
+[25]solving inverse problems with FLAIR.pdf
+[25]Temporal flow matching for learning spatial temporal trajectories in 4D fMRI.pdf
+[25]The Principles of Diffusion Models.pdf
+[25]Token shuffle towards high resolution image generation with autoregressive models.pdf
+[25]Tversky Neural Networks- Psychologically Plausible Deep Learning with Differentiable Tversky Similarity.pdf
+[25]Unified continuous generative models.pdf
+[25]vec2vec.pdf
+[26]On the Separability of Information in Diffusion Models.pdf
+[Aapo-Hyvarinen,-Juha-Karhunen,-Erkki-Oja]-Indepen(z-lib.org).pdf
+[AISTATS09]Learning a parametric embedding by preserving local structure.pdf
+[AISTATS25]InfoNCE practive and theory.pdf
+[Book24]What is entropy.pdf
+[Book25]Mathematical Foundations of Geometric Deep Learning.pdf
+[books]green book for quant.pdf
+[CHI24] mutli modal Health care AU.pdf
+[CVPR17]pix2pix.pdf
+[CVPR21]adaptive weighted discriminator for training GAN.pdf
+[CVPR21]Learning Continuous Image Representation with Local Implicit Image Function.pdf
+[CVPR22]CLIPseg.pdf
+[CVPR22]GroupViT.pdf
+[cvpr22]masked autoencoder.pdf
+[cvpr22]VQ diffusion.pdf
+[CVPR22]VQGAN.pdf
+[CVPR23]DQ_VAE.pdf
+[cvpr24] prompt driven referring segmentation with image contrasting.pdf
+[cvpr24]diffusion match distillation.pdf
+[CVPR24]Functional diffusion.pdf
+[CVPR25]Exploring CLIPs dense knowledge for weakly supervised semantic segmentation.pdf
+[CVPR25]LSNet.pdf
+[CVPR25]VAVAE.pdf
+[CVPR26]Reviving ConvNeXt for Efficient Convolutional Diffusion Models.pdf
+[CVPR26]Scale space diffusion.pdf
+[CVPRW24]SAM-CLIP- Merging Vision Foundation Models towards Semantic and Spatial Understanding.pdf
+[defence]Super_resolution_for_MRI.pdf
+[ECCV24]SplatFields 3D 4D GS.pdf
+[Economica 1937]The Nature of the Firm.pdf
+[Francis Bach]Learning Theory from First Principles.pdf
+[Gabriel24]course notes on OT.pdf
+[Gabriel24]DDPM and OT.pdf
+[Gemini_report]FM_SOTA_literature search.pdf
+[google25]video models are zero shot learners and reasoners.pdf
+[Hinton]tutorial RBM.pdf
+[ICCV17]Octree for generating 3D high resolution.pdf
+[ICCV23]DiffuMask synthesizing images with pixel level annotation for semantics.pdf
+[ICCV23]Preserving tumor volumes for unsupervised medical image registration.pdf
+[ICCV25]Exploiting diffusion Prior for task driven image restoration.pdf
+[ICCV25]loftUP.pdf
+[ICCV25]Multiverseg scalable interactive segmentation of biomedical imaging datasets.pdf
+[ICLR17]ß-VAE.pdf
+[ICLR21]EigenGame PCA as a nash equilibrium.pdf
+[ICLR21]Fourier Neural Operator.pdf
+[ICLR21]Refining deep GAN via discriminator gradient flow.pdf
+[ICLR22]autoregressive DDPM.pdf
+[ICLR22]PYRAFORMER.pdf
+[ICLR23]blurring ddpm.pdf
+[ICLR23]flow matching.pdf
+[ICLR23]self supervised diffusion mri denoising.pdf
+[ICLR25]learning general purpose biomedical volume representation using randomized synthesis.pdf
+[ICLR25]pyramidal flow matching for video generation.pdf
+[ICLR25]Restructuring vector quantization with the rotation trick.pdf
+[ICLR25]Wrap noise DDPM.pdf
+[ICLRW25]shaping inductive bias in DDPM thtough noiser frequency control.pdf
+[ICML18]PixelSNAIL- An Improved Autoregressive Generative Model.pdf
+[ICML20]Generative pretraining from pixels.pdf
+[ICML24]Can_Machines_Learn_the_Tr.pdf
+[ICML24]estimate barycenter of distribution with neural OT.pdf
+[ICML24]Generative conditional neural OT.pdf
+[ICML24]interpreting generative models with OT.pdf
+[ICML24]Is Noise Conditioning Necessary for Denoising Generative Models.pdf
+[ICML24]Learning Latent Space Hierarchical EBM Diffusion Models.pdf
+[ICML24]Light and optimal schrödinger bridge matching.pdf
+[ICML24]Mean_field_Chaos_Diffusion.pdf
+[ICML24]minimax the optimality of score matching models.pdf
+[ICML24]Nonlinear filter for Brenier maps.pdf
+[ICML24]Optimal ridge regularisation on OOD.pdf
+[ICML24]quantum theory and application of OT.pdf
+[ICML24]scalable OT with wasserstein transformer.pdf
+[ICML24]scalable wasserstein gradient flow for OT.pdf
+[ICML24]understanding and generalising CLIP via OT.pdf
+[ICML24]Variantional Schrödinger diffusion model.pdf
+[ICML25]Addressing misspecification in simulation based inference through data.pdf
+[ICML25]Can Diffusion Models Disentangle? A Theoretical Perspective.pdf
+[ICML25]Generalized interpolating discrete diffusion.pdf
+[ICML25]INRflow.pdf
+[ICML25]Spatial Reasoning with Denoising Models.pdf
+[ICML25]Variational rectified flow matching.pdf
+[IEEE signal processing 13]A tour of modern image processing.pdf
+[IMO]2024_chs.pdf
+[Lec]Hilbert Space.pdf
+[Lec]PDEs on bounded.pdf
+[Lec]Probability machine learning_101.pdf
+[Math94]Precise estimates on the rate at which certrain diffusion equilibriute.pdf
+[MIA21]personalising LV function simulation from PINN.pdf
+[MIA24]3DSAM-Adapter- Holistic adaptation of SAM from 2D to 3D for promptable tumor segmentation.pdf
+[MIA25]MedSAM adaptor.pdf
+[MIA25]multi-view volume to mesh reconstruction on cardiac MRI.pdf
+[miccai23]noise2contrast.pdf
+[MICCAI24]causualCLIPSeg.pdf
+[MICCAI24]CP-CLIP core periphery feature alignemnt CLIP for zero shot medical image anaylsis.pdf
+[MICCAI24]MedCLIP-SAM- Bridging Text and Image Towards Universal Medical Image Segmentation.pdf
+[MICCAI24]NODER Image sequence regression based on neural ODE.pdf
+[MICCAI24]SegMamba.pdf
+[MICCAI24]Spatial temporal Neural distance field for conditional generative modeling of the heart.pdf
+[MICCAI24]VCLIPSeg.pdf
+[MICCAI25]TextBraTS- Text-Guided Volumetric Brain Tumor Segmentation with Innovative Dataset Development and Fusion Module Exploration.pdf
+[Nature CS24]A scalable framework for learning the geometry dependent solution operators of pde.pdf
+[Nature ML]A personalised time resolve 3D mesh gen model for unveiling normal heart dynamics.pdf
+[Nature25]A foundation model to predict and capture human cognition.pdf
+[Nature25]learning the natural history of human isease with generative transformers.pdf
+[Nature25]Multimodal generative AI for medical image interpretation.pdf
+[NIPS]differentiable augmentation for data efficient GAN training.pdf
+[NIPS13]Sinkhorn.pdf
+[NIPS14]identifying and attacking the saddle point problem in high dim non convex optimization.pdf
+[NIPS14]Identifying and attacking the saddle point problem in high dimensional non-convex optimization.pdf
+[NIPS18]On the Global Convergence of Gradient Descent for Over-parameterized Models using Optimal Transport.pdf
+[NIPS20]Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains.pdf
+[NIPS21]DDPM.pdf
+[NIPS21]Large scale Wassersetin gradient flow(appedix).pdf
+[NIPS21]Large scale wasserstein flow.pdf
+[NIPS21]Large scale wasserstein gradient flow.pdf
+[NIPS21]Large scale wasserstein gradient flow[slides].pdf
+[NIPS22]Blind face restoration using look up codes.pdf
+[NIPS22]DigGAN.pdf
+[NIPS22]Matryoshka Representation Learning.pdf
+[NIPS22]Towards robust blind face restoraction with codebook lookup transformer.pdf
+[NIPS23]Equivariance flow matching.pdf
+[NIPS23]Flow matching for scalable simulation based inference.pdf
+[NIPS23]SPAE- Semantic Pyramid AutoEncoder for Multimodal Generation with Frozen LLMs.pdf
+[NIPS24]Autoregressive Image Generation without Vector Quantization.pdf
+[NIPS24]Hamiltonian diffusion model.pdf
+[NIPS24]Mask is all you need.pdf
+[NIPS24]scaling the codebook size of VQGAN to 100000.pdf
+[NIPS25][Bestpaper]Why Diffusion Models Don’t Memorize- The Role of Implicit Dynamical Regularization in Training.pdf
+[NIPS25]Back to Basics- Let Denoising Generative Models Denoise.pdf
+[NIPS25]Fractional diffusion bridge models.pdf
+[NIPS25]Mean flow.pdf
+[NIPS25]Nested Learning- The Illusion of Deep Learning Architectures.pdf
+[NIPS25]Neural entropy.pdf
+[NIPS25]On the Closed-Form of Flow Matching- Generalization Does Not Arise from Target Stochasticity.pdf
+[NIPS25]Riemannian Flow Matching for Brain Connectivity Matrices via Pullback Geometry.pdf
+[NIPS25]Sharper Convergence Rates for Nonconvex Optimisation via Reduction Mappings.pdf
+[NIPS25]Superposition Yields Robust Neural Scaling.pdf
+[NIPSW24]Neural Entropy.pdf
+[NVIDIA]S41960 C++ Standard Parallelism_1647897637946001sGv4.pdf
+[PNAS24]explaining neural scaling laws.pdf
+[review18]variational inference.pdf
+[Rust]rust_lisehenry.pdf
+[scientificData22]Movement related artefacts dataset of matched motion corrupted and clean structural MRI brain scans.pdf
+[slides][ICML24]OT tutorial.pdf
+[slides]OT_ENSAE_24.pdf
+[thesis]physics informed machine learning from concept to real-world applications.pdf
+[TMI24]langauge ViT for segmentation.pdf
+[TMLR25]Conditional Image Synthesis with Diffusion Models- A Survey.pdf
+[TMLR25]On Memorization in Diffusion Models.pdf
