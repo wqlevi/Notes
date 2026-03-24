@@ -1,0 +1,57 @@
+\section*{SDE to Fokker-Planck Equation}
+
+\subsection{SDE}
+A simple (scalar) It\^o stochastic differential equation (SDE) is
+\begin{equation}
+  dX_t = \mu(X_t, t)\,dt + \sigma(X_t, t)\,dW_t,
+\end{equation}
+where $\mu\in\mathbb{R}$ is the drift, $\sigma>0$ is the diffusion coefficient, and $W_t$ is a standard Brownian motion.
+
+This can be integrated into:
+\begin{equation}
+    X_t = \int_{0}^{t} \mu_{s}\,ds + \int_{0}^{t} \sigma_{s}\,dW_s
+\end{equation}
+As for standar Brownian motion has mean 0, therefore the expectation and variance of the $X_t$ are:
+\begin{align}
+  \mathbb{E}[X_t] &= \int_{0}^{t} \mu_{s}\,ds,\\
+  \operatorname{Var}(X_t) &= \int_{0}^{t} \sigma_{s}^2\,ds.
+\end{align}
+
+
+\subsection{Itô lemma}
+Itô lemma states that a test function $\psi(X_t)$ can also be described by an SDE. Itô lemma helps to find expression of such SDE\footnote[1]{another way of deriving FPE is via jump function from the master equation}. Namely, the Itô formula takes a twice-differentiable test function $\psi(x,t)$ and apply Taylor-expansion to it, while neglecting the faster zero-out variables, such as $(dt)^2, dW\,dt$, and substitute $dt$ for $(d_W)^2$. Therefore,
+
+\begin{equation}
+    d\psi = \lim_{dt \rightarrow 0} (\frac{\partial \psi}{\partial t}
+                                    + \mu_t \frac{\partial \psi}{\partial x}
+                                    +\frac{\sigma^2_t}{2}\frac{\partial^2\psi}{\partial x^2})dt
+                                    + \sigma_t\frac{\partial \psi}{\partial x}dW_t
+\end{equation}
+
+To simplify the notation, assign $\psi' =  \frac{\partial \psi}{\partial x}$ and $\psi'' = \frac{\partial^2\psi}{\partial x^2}$, gives:
+
+\begin{equation}
+    d\psi = \lim_{dt \rightarrow 0} (\frac{\partial \psi}{\partial t}
+                                    + \mu_t \psi'
+                                    + \frac{\sigma^2_t}{2}\psi'')dt
+                                    + \sigma_t\psi'dW_t
+    \label{eq:ito}
+\end{equation}
+
+\subsection{Fokker-Planck Equation}
+Take the expectation over both side of Eq.~\ref{eq:ito}:
+\begin{equation}
+    \frac{d}{dt}\mathbb{E}[\psi(X_t)] = \mathbb{E}[\mu_t \psi' + \frac{\sigma_t^2}{2}\psi'']
+\end{equation}
+Now express the expectation in integral form:
+\begin{align}
+    \frac{d}{dt}\int \psi\,p(x,t)dx &= \int[\mu_t \psi' + \frac{1}{2}\sigma_{t}^2\psi'']p(x,t) dx \\
+    \text{integral by parts:} \\
+    \frac{d}{dt}\int \psi\,p(x,t)dx &= \int\,\psi[-\partial_{x}(\mu_t p) + \frac{1}{2}\partial_{x}^2(\sigma_t^2p)]dx \label{eq:int_expectation}
+\end{align}
+Compare the Eq.~\ref{eq:int_expectation} to FP equation:
+\begin{equation}
+    \frac{\partial p}{\partial t} = -\frac{\partial}{\partial x}[\mu(x,t)\,p(x,t)] + \frac{1}{2}\frac{\partial^2}{\partial x^2}[\sigma^2(x,t)\,p(x,t)]
+\end{equation}
+\hfill$\square$\\
+The Fokker-Planck equation describes is a partial differential equation describing the time evlolution of the probability density function of the position or velocity of a particle under drag and diffusion force.

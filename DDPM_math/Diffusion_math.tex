@@ -1,0 +1,66 @@
+\section*{Diffusion Math}
+
+\subsection{Forward process}
+Starting from the requirement that we would like the signal to be corrupted little-by-little, by adding isotropic noise at each step, we can define the diffusion process as follows:
+
+
+\begin{equation}
+    x_t = a_k x_{k-1} + b_k \epsilon_k
+\end{equation}
+where $x_t$ is the signal at time $t$, $x_{k-1}$ is the signal at the previous time step, $a_k$ is the diffusion coefficient at time step $k$, $b_k$ is the noise coefficient at time step $k$, and $\epsilon_k$ is the isotropic noise at time step $k$.
+
+To ensure the variance shall stay constant over time, we require that $a_k^2 + b_k^2 = 1$ for all steps $k$. This assigns the following equation while introducing the noise coefficient $\beta_k$:
+
+\begin{equation}
+    x_t = \sqrt{1 - \beta_k} x_{k-1} + \sqrt{\beta_{k}} \epsilon_k, \text{where $\beta_k = b^2$}
+    \label{eq:vp_sde}
+\end{equation}
+
+Now let $\alpha_{t} = 1 - \beta_t$ and $\bar{\alpha}_t = \prod_{k=1}^{t} \alpha_k$. Then we have:
+
+\begin{equation}
+    \begin{aligned}
+        x_t &= \sqrt{\alpha_t} x_{k-1} + \sqrt{1 - \alpha_t} \epsilon_k\\
+            &= \sqrt{\alpha_{t}\alpha_{t-1}} x_{k-2} + \sqrt{1 - \alpha_{t}\alpha_{t-1}} \epsilon_{k-1}\\
+            &= \cdots\\
+            &= \sqrt{\prod_{k=1}^{t} \alpha_k} x_0 + \sqrt{1 - \prod_{k=1}^{t} \alpha_k} \epsilon_t\\
+            &= \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon_t
+    \end{aligned}
+\end{equation}
+
+Therefore, the forward noise adding process can be described as the conditional form (marginal distribution):
+
+\begin{equation}
+    q(x_t | x_0) = \mathcal{N}(x_{t}; \sqrt{\bar{\alpha}_t} x_0, (1 - \bar{\alpha}_t) I)
+\end{equation}
+
+When considering the continuous time setting, Eq.~\ref{eq:vp_sde} becomes:
+\begin{align}
+        x_{t + \Delta t} &= \sqrt{1 - \beta_t \Delta t} x_t + \sqrt{\beta_t \Delta t} \epsilon_t \\
+        \intertext{Taylor expansion around $\Delta t = 0$:}
+        \sqrt{1 - \beta_t \Delta t} &\approx 1 - \frac{1}{2}\beta_t \Delta t + \mathcal{O}\left(\Delta t\right) \\
+        \intertext{Bring back to the equation:}
+        x_{t + \Delta t} - x_t &= - \frac{1}{2}\beta_t \Delta t x_t + \sqrt{\beta_t \Delta t} \Delta W_t \\
+        \intertext{Simplify:}
+        dx_{t} &= - \frac{1}{2}\beta_t dt x_t + \sqrt{\beta_t dt} dW_t
+    \label{eq: vp-sde-continuous}
+\end{align}
+
+\subsection{Reverse process}
+
+When the reverse is conditioned on $x_{0}$, the process is tractable:
+\begin{equation}
+    q(x_{t-1}| x_{t}, x_{0}) = \mathcal{N}(x_{t-1}; \tilde{\mu}_{t}(x_{t}, x_{0}), \tilde{\beta}_{t}I)
+\end{equation}
+
+Using Bayes' rule, properties of Markovian chain and substituing the items. Compare to the form of the posterior, which is also a Gaussian density function, the parameters becomes:
+
+\begin{align}
+	\tilde{\beta}_{t} &= \frac{1 - \bar{\alpha}_{t-1}}{1 - \bar{\alpha}_{t}}\dot \beta_{t} \\
+	\tilde{\mu}_{t}(x_{t}, x_{0}) &= \frac{\sqrt{\alpha_{t}} (1-\bar{\alpha_{t-1}})}{1 - \bar{\alpha_{t}}}x_{t}  +
+	\frac{\bar{\alpha_{t-1}}\beta_{t}}{1 - \bar{\alpha_{t]}}}x_{0}\\
+	\intertext{recalling: $x_{0} = \frac{1}{\sqrt{\bar{\alpha_{t}}}}(x_{t} - \sqrt{1- \bar{\alpha_{t}\epsilon_{t}}})$:}
+	                              &= \frac{1}{\sqrt{\alpha_{t}}}(x_{t} - \frac{1-\alpha_{t}}{\sqrt{1 - \bar{\alpha_{t}}}} \epsilon_{t})\\
+\end{align}
+
+at this step, we noticed the conditioned posterior is no longer dependent on $x_{0}$, which is unkown at inference time. Thus, the neural network can start to approximate the conditioned propability distribution as $p_{\theta}(x_{t-1} | x_{t}) = \mathcal{N}(x_{t-1}; \mu_{\theta}(x_{t}, t), \Sigma_{\theta}(x_{t}, t))$.

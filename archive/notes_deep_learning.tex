@@ -14,14 +14,14 @@
 %********Preface list of terms
 \textbf{Closed-form Expression:} A mathematical expression that consists of finite number of standard operations.(e.g. multiplications, divisions, plus, minus, etc.)
 \textbf{Manifold:}
-It can be referred to a connected region. The concept of neighborhood point implies the possible existing tranformations to move from point to point. It can also be though as a small number of degree of freedom embedded in high dimensionalities of data, where each dimensionality corresponds to local direction of variantion. 
+It can be referred to a connected region. The concept of neighborhood point implies the possible existing tranformations to move from point to point. It can also be though as a small number of degree of freedom embedded in high dimensionalities of data, where each dimensionality corresponds to local direction of variantion. \\
 \textbf{Attention:}
 \begin{enumerate}
 \item \textit{def.1} attention: using techniques to tell the algorithm what's important in a input.
 \item \textit{def.2} post-hoc attention:
 \end{enumerate}
-\textbf{Convexity}:\\
-\textbf{Tractability}:\\
+\textbf{Convexity}:A function being convex, such that: $$\forall t \in [0,1], f(tx_{1}+(1-t)x_{2}) \leq tf(x_{1}+(1-t)f(x_{2})) $$
+\textbf{Tractability}:When solving a problem requires more computational resource beyond reality, we call it intractable.\\
 \textbf{Consistency:} The bias between estimated result and its real value, which can be diminished as data example grows.\\
 \textbf{generalization:} The ability to perform well on previously unseen data is called generalization. That is, test error reflects generalization ability.\\
 \textbf{underfitting:} When the model is not able to obtain a sufficient low training error;\\
@@ -44,22 +44,23 @@ Let $p_{model}(x;\theta)$ be a parametric probability distribution, mapping any 
 &= \argmax_\theta \prod_{i=1}^{m}p_{model}(x^{(i)};\theta)
 \end{align*}
 
-Expressed in $log$ scale for the simplicity of calculation:
+Expressed in $log$ scale for the simplicity of calculation({\emph{Maximum Log Likelihood}):
 \[ \theta_{ML} = \argmax_\theta \sum_{i=1}^{m}\log p_{model}(x^{(i)};\theta)\]
 Because $\argmax$ does not change when rescaling the cost function, we can divide by $m$ to obtain expectation version of criterion w.r.t. empirical distribution $\hat{p}_{data}$:
 \[
     \theta_{ML} = \argmax_\theta \mathbb{E}_{x\sim\hat{p}_{data}} \log p_{model}(x;\theta)    
 \]
 Maximum Likelihood Estimation can be viewed as minimizing the KL divergence here:
-\[
-    \textit{D}_{KL}(\hat{p}_{data}||p_{model}) = \mathbb{E}_{x\sim\hat{p}_{data}(x)}[\log\hat{p}_{data}(x) - \log p_{model}(x)]    
-\]
-Since $\log\hat{p}_{data}$ is only about data generation, thus only need to minimize $\log p_{model}(x)$
+\begin{align*}
+\textit{D}_{KL}(\hat{p}_{data}||p_{model}) &= \mathbb{E}_{x\sim \mathcal{\chi}}\hat{p}_{data}(x) \log(\frac{\hat{p}_{data}}{p_{model}})\\
+						   &= \mathbb{E}_{x\sim\hat{p}_{data}(x)}[\log\hat{p}_{data}(x) - \log p_{model}(x)]    
+\end{align*}
+Since $\log\hat{p}_{data}$ is only about data generation, thus only need to maximize $\log p_{model}(x)$
 \subsection*{Properties of Maximum Likelihood}
 As the number of examples $m \rightarrow \infty$, the maximum likelihood of estimate approaches the real value of the parameter. These conditions applies:
 \begin{enumerate}
-    \item The true distribution $p_{data}$ must lie within the model families $p_{model}(x;\theta)$, otherwise no estimator could recover $p_{data}$
-    \item The true distribution must correspond to only one value of parameter $\theta$, otherwise the estimator can recover the correct $p_{data}$ but not determining which $\theta$
+    \item The true distribution $p_{data}$ must lie within the model families $p_{model}(x;\theta)$, otherwise no estimator could recover $p_{data}$;
+    \item The true distribution must correspond to only one value of parameter $\theta$, otherwise the estimator can recover the correct $p_{data}$ but not determining which $\theta$;
 \end{enumerate}
 \subsection*{Bayesian statistics}
 Other than estimating single $\theta$, another approach is to consider all possible $\theta$ values when making prediction over observed data, this is the how \textit{Bayesian statistic} work. \par
@@ -72,8 +73,13 @@ One could estimate the next $m+1$ sample from observed $m$ samples, based on our
     p(x^{(m+1)}|x^{(1)},\dots,x^{(m)}) = \int p(x^{(m+1)}|\theta)p(\theta|x^{(1)},\dots,x^{(m)})d\theta
 \end{equation}
 Thus the prediction on the next data $x^{(m+1)}$ is predicted and weighted on the posterior distribution of $\theta$(the posterior: $p(\theta|x^{(1)},\dots,x^{(m)})$).\par
-Unlike the \textbf{MLL} to predict one point of the parameter, Bayesian stat. recover dataset by intergral over possible parameters. Secondly, Bayesian stat.depends on predefined prior of $\theta$, which was initiated by large entropy and decreased to smaller and more prone to data distribution entropy as data grows.\par
+Unlike the \textbf{MLL} to predict one point of the parameter, Bayesian stat. recover dataset by intergral over possible parameters. Secondly, Bayesian stat. depends on predefined prior of $\theta$, which was initiated by large entropy and decreased to smaller and more prone to data distribution entropy as data grows.\par
 Overall, it produce much better result given limited number of data, but requires more computation cost.
+
+\subsubsection*{Newton's method}
+Newton's method uses 2\textsuperscript{nd} Tayler expandsion of an approximated function $f$:
+
+$$f(x) \approx f(x^{(0)}) + (x-x^{(0)})^{T}\nabla_{x}f(x^{(0)}) + \frac{1}{2}(x-x^{(0)})^{T}H(f)(x^{(0)})(x-x^{(0)})$$
 
 \section{Feedforward neural network}
 This category usually refers to networks other than recurrent neural networks, which use network's output as other layer's input. The most common type of Feedforward network is MLP(multilayer perceptron) and CNN.
@@ -84,6 +90,8 @@ The gradient descent method is quite sensitive to initialization of weights, thu
 \subsection*{Weights}
 In MLP, the weight refer to the weight factor in each connected neuron, e.g. from $N$-neuron first layer to $M$-neuron second layer, $N\times M$ weights were created; while due to slightly different definition of neuron in Convolutional networks, which defines each Conv filter as a neuron, weight equals to the tensor of Conv filter(e.g. a Conv2d(kernel=(2,2),input\_channel=1,output\_channel16), where 16 neurons each one will contain $2\times 2\times 1$ weights and one bias)
 
+\subsection*{Bias}
+Bias can be useful in from transformations to another transformations, {\emph {e.g.}} two connected Convolutional layers; but is less effective before using normalization layers, like {\emph {batchnorm}}, because the statistics learned for feature space is then normalized then bias term become useless in operators(conv or linear).
 
 \section{GAN}
 GAN compares to the rest of the generative model, differing by a two-player game strategy. In the game, the discriminator tries to distinguish generated results from real data distribution, thus to encourage the generator to produce samples closer to the real data. \\
@@ -143,10 +151,12 @@ GAN was designed origionally using $JS$ divergence, between $p_{r}$ and $p_{g}$:
 \end{align}
 Meaning that the most optimal \textit{generator} replicates the real data distribution, and resulting global minimum of $L(G^*,D^*) = -2\log(2)$ inline with eq.8.
 \subsubsection*{Lipschitz continuity}
-This is used to identity the continuity and but not necessarily differentiable of a function(e.g. $f(x) = |x|$). Defined as:
+This is used to identity the continuity and rate of change but not necessarily differentiable of a function(e.g. $f(x) = |x|$). Defined as:
 \[
 \exists K, \forall x_{i}, |f(x_{1}) - f(x_{2})| \leq K|x_{1}-x_{2}|    
 \]
+where $K$ is a constant, limiting the changing rate of the function, called Lipschitz constant.\\
+This is a useful property, for example it ensures a small change in the inputs causes a controlled small change in the output.
 \section{Markov Chain Monte Carlo}
 \subsection{Markov Chain}
 This method applys to the following rule:
