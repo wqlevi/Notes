@@ -1,0 +1,25 @@
+\section*{Overdamped Langevin is a Itô diffusion}
+Langevin dynamics obeys a fluctuation--dissipation relation: the friction (dissipation) and the injected noise balance so that the dynamics has a stationary distribution given by the Gibbs density.
+
+Consider the overdamped Langevin SDE
+\begin{equation}
+  dX_t = -\nabla U(X_t)\,dt + \sqrt{2\beta^{-1}}\,dW_t,
+\end{equation}
+where $U(x)$ is a potential and $\beta^{-1}=k_B T$ is the temperature (up to constants). The associated Fokker--Planck equation for the law $p(x,t)$ of $X_t$ is
+\begin{equation}
+  \partial_t p = \nabla\cdot\bigl(p\,\nabla U\bigr) + \beta^{-1}\,\Delta p.
+\end{equation}
+A stationary density $p_\infty$ satisfies $0=\nabla\cdot(p_\infty\nabla U)+\beta^{-1}\Delta p_\infty$. One checks directly that
+\begin{equation}
+  p_\infty(x) \propto e^{-\beta U(x)}
+\end{equation}
+solves this equation (plug in $p_\infty$ and use $\nabla p_\infty=-\beta p_\infty\nabla U$), hence the Gibbs measure is invariant.
+
+Equivalently, writing the probability current as $J = -p\,\nabla U - \beta^{-1}\nabla p$, we have $J=0$ when $p=p_\infty$, so the process is reversible and satisfies detailed balance. In particular, the drift equals the score of the Gibbs density:
+\begin{equation}
+  -\nabla U(x) = \beta^{-1}\,\nabla\log p_\infty(x).
+\end{equation}
+
+Therefore, the drift of a overdamped Langevin is exactly the score of target distribution.
+\subsection{Langevin dynamics is the Gradient flow KL in Wasserstein geometry}
+JKO scheme proved FPE is a gradient flow in Wasserstein geometry.

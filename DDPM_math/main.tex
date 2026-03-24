@@ -1,0 +1,32 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{multicol}
+\usepackage{lettrine}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1\baselineskip}
+
+
+\begin{document}
+
+\section*{Distribution, Geometry, and measures}
+
+\lettrine[lines=3,lraise=0.12]{T}{he} "Big Picture" Synthesis
+If you want to know how a system reaches the Boltzmann Distribution, you look at the Fokker-Planck Equation. If you want to understand why the FPE takes the shape it does, you look at the JKO Scheme, which proves that the system is simply taking the "cheapest" path (defined by Optimal Transport) to minimize its energy. The SDE is just the zoomed-in version of that same movement.
+
+\input{SDE_FP.tex}
+\input{Langevin_boltzmann.tex}
+\input{Diffusion_math.tex}
+
+\section*{Features}
+
+%\begin{multicols}{3}
+
+%\end{multicols}
+
+
+\end{document}

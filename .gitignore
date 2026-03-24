@@ -1,9 +1,17 @@
 # no compiled Latex accessories
-*.aux 
-*.pdf 
-*.log 
-*.fls 
-*.fdb_latexmk 
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.lot
+*.out
+*.pdf
+*.run.xml
+*.toc
+*.log
+*.fls
+*.fdb_latexmk
 *.synctex.gz
 # no cache folders from MacOS
 *.DS_store
